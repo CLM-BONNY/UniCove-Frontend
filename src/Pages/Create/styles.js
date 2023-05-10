@@ -16,6 +16,8 @@ export const Back = styled.img`
 
 export const Title = styled.div`
   display: inline-block;
+  position: absolute;
+  left: 45%;
   margin: 10px auto 0px auto;
 `;
 
