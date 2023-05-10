@@ -10,7 +10,7 @@ export const Back = styled.img`
   display: inline-block;
   width: 14px;
   height: 25px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 10px;
 `;
 
@@ -18,7 +18,7 @@ export const Title = styled.div`
   display: inline-block;
   position: absolute;
   left: 45%;
-  margin: 10px auto 0px auto;
+  margin: 20px auto 0px auto;
 `;
 
 export const ProfileImg = styled.div`
