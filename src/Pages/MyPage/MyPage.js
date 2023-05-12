@@ -7,7 +7,7 @@ function MyPage() {
       <header>
         <style.Head>
           <style.Back
-            src={process.env.PUBLIC_URL + "Images/Create/back.svg"}
+            src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
           ></style.Back>
           <style.Title>내 정보</style.Title>
           <style.Set>수정</style.Set>

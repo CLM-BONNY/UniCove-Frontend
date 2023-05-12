@@ -7,15 +7,13 @@ function Join() {
       <header>
         <style.Head>
           <style.Back
-            src={process.env.PUBLIC_URL + "Images/Create/back.svg"}
+            src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
           ></style.Back>
           <style.Title>회원가입</style.Title>
         </style.Head>
       </header>
       <style.ProfileImg>
-        <img
-          src={process.env.PUBLIC_URL + "Images/Create/profileImg.svg"}
-        ></img>
+        <img src={process.env.PUBLIC_URL + "Images/Join/profileImg.svg"}></img>
       </style.ProfileImg>
       <style.Set>설정</style.Set>
       <style.Label>이름</style.Label>
