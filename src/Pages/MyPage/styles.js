@@ -43,7 +43,7 @@ export const Name = styled.p`
   width: 413px;
   border: #84ccd4;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border: 0;
   border-bottom: 1px solid #84ccd4;
 `;
@@ -52,7 +52,7 @@ export const Phone = styled.p`
   width: 413px;
   border: #84ccd4;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border: 0;
   border-bottom: 1px solid #84ccd4;
 `;
@@ -64,7 +64,7 @@ export const Place = styled.p`
   border-bottom: 1px solid #84ccd4;
   outline: none;
   margin: 0 auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 export const Id = styled.p`
@@ -74,4 +74,11 @@ export const Id = styled.p`
   margin-bottom: 100px;
   border: 0;
   border-bottom: 1px solid #84ccd4;
+`;
+
+export const Label = styled.div`
+  width: 413px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: gray;
 `;

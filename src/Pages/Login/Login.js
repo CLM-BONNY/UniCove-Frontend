@@ -12,6 +12,7 @@ function Login() {
         ></img>
       </style.LogoBlock>
       <form>
+        <style.Label>아이디</style.Label>
         <style.InputBlock>
           <div>
             <input
@@ -21,6 +22,7 @@ function Login() {
             />
           </div>
         </style.InputBlock>
+        <style.Label>비밀번호</style.Label>
         <style.InputBlock>
           <div>
             <input

@@ -18,6 +18,7 @@ function Join() {
         ></img>
       </style.ProfileImg>
       <style.Set>설정</style.Set>
+      <style.Label>이름</style.Label>
       <style.NameInput>
         <input
           type="text"
@@ -25,6 +26,7 @@ function Join() {
           placeholder="이름를 입력해주세요"
         />
       </style.NameInput>
+      <style.Label>전화번호</style.Label>
       <style.PhoneInput>
         <input
           type="text"
@@ -32,6 +34,7 @@ function Join() {
           placeholder="전화번호를 입력해주세요"
         />
       </style.PhoneInput>
+      <style.Label>주소</style.Label>
       <style.PlaceInput>
         <option value="" selected>
           주소 선택하기
@@ -62,6 +65,7 @@ function Join() {
         <option value="중구">중구</option>
         <option value="중랑구">중랑구</option>
       </style.PlaceInput>
+      <style.Label>아이디</style.Label>
       <style.IdInput>
         <input
           type="text"
@@ -69,6 +73,7 @@ function Join() {
           placeholder="아이디를 입력해주세요"
         />
       </style.IdInput>
+      <style.Label>비밀번호</style.Label>
       <style.PasswordInput>
         <input
           type="password"
@@ -76,6 +81,7 @@ function Join() {
           placeholder="비밀번호를 입력해주세요"
         />
       </style.PasswordInput>
+      <style.Label>비밀번호 확인</style.Label>
       <style.PasswordCheck>
         <input
           type="password"

@@ -4,8 +4,7 @@ export const InputBlock = styled.div`
   width: 413px;
   border: #84ccd4;
   margin: 0 auto;
-  margin-bottom: 100px;
-  margin-top: 100px;
+  margin-bottom: 30px;
   border: 0;
   border-bottom: 1px solid #84ccd4;
 `;
@@ -13,6 +12,8 @@ export const InputBlock = styled.div`
 export const LogoBlock = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 80px;
+  margin-bottom: 100px;
 `;
 
 export const LoginButtonBlock = styled.button`
@@ -24,7 +25,7 @@ export const LoginButtonBlock = styled.button`
   width: 434px;
   height: 63px;
   line-height: 63px;
-  margin: 0px auto 20px auto;
+  margin: 100px auto 20px auto;
   border: none;
 `;
 
@@ -39,4 +40,11 @@ export const ButtonBlock = styled.button`
   height: 63px;
   line-height: 63px;
   border-color: #84ccd4;
+`;
+
+export const Label = styled.div`
+  width: 413px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: gray;
 `;
