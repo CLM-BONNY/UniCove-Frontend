@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as style from "./styles";
 
-function Create() {
+function Join() {
   return (
     <div>
       <header>
@@ -89,4 +89,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default Join;
