@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const FullButton = styled.div`
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: ${(props) => props.border || "10px"};
   background-color: ${(props) => props.backgroundColor || "#84ccd4"};
   border: 2px solid ${(props) => props.backgroundColor || "#84ccd4"};
@@ -19,8 +22,8 @@ export const FullButton = styled.div`
     &:last-child {
       font-weight: 400;
       font-size: 12px;
-    };
-  };
+    }
+  }
 `;
 
 export const StrokeButton = styled.div`
@@ -42,5 +45,5 @@ export const StrokeButton = styled.div`
     display: flex;
     flex-direction: column;
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-  };
+  }
 `;
