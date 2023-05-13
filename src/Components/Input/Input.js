@@ -12,6 +12,7 @@ export default function Input(props) {
           name={props.name}
           type={props.type || "text"}
           placeholder={props.placeholder}
+          style={{ outline: 0 }}
         ></input>
       </style.InputBlock>
     </>

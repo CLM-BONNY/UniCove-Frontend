@@ -5,6 +5,7 @@ export const TitleBlock = styled.div`
   width: 413px;
   margin: 0 auto;
   margin-bottom: ${(props) => props.titlemarginBottom};
+  font-size: 13px;
 `;
 
 export const InputBlock = styled.div`
