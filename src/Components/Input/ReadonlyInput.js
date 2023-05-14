@@ -3,7 +3,7 @@ import * as style from "./styles";
 
 export default function ReadonlyInput(props) {
   return (
-    <>
+    <style.Wrap>
       <style.TitleBlock titlemarginBottom={props.titlemarginBottom}>
         {props.title}
       </style.TitleBlock>
@@ -16,6 +16,6 @@ export default function ReadonlyInput(props) {
           readOnly
         ></input>
       </style.InputBlock>
-    </>
+    </style.Wrap>
   );
 }

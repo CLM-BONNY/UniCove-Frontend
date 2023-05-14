@@ -3,7 +3,7 @@ import * as style from "./styles";
 
 export default function Input(props) {
   return (
-    <>
+    <style.Wrap>
       <style.TitleBlock titlemarginBottom={props.titlemarginBottom}>
         {props.title}
       </style.TitleBlock>
@@ -15,6 +15,6 @@ export default function Input(props) {
           style={{ outline: 0 }}
         ></input>
       </style.InputBlock>
-    </>
+    </style.Wrap>
   );
 }

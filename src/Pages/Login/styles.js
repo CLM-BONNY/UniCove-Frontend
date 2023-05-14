@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
 
+export const Wrap = styled.div`
+  padding: 60px 20px 0;
+`;
+
 export const InputBlock = styled.div`
   width: 413px;
   border: #84ccd4;

@@ -4,7 +4,7 @@ import Input from "../../Components/Input/Input";
 
 function PasswordChange() {
   return (
-    <div>
+    <style.Wrap>
       <header>
         <style.Head>
           <style.Back
@@ -61,7 +61,7 @@ function PasswordChange() {
         type={"password"}
         placeholder={"새 비밀번호를 한 번 더 입력해주세요"}
       />
-    </div>
+    </style.Wrap>
   );
 }
 

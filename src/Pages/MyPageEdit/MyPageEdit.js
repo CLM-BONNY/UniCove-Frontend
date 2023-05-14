@@ -4,7 +4,7 @@ import Input from "../../Components/Input/Input";
 
 function MyPageEdit() {
   return (
-    <div>
+    <style.Wrap>
       <header>
         <style.Head>
           <style.Back
@@ -59,7 +59,7 @@ function MyPageEdit() {
         placeholder={"gildong12"}
         color={"black"}
       />
-    </div>
+    </style.Wrap>
   );
 }
 

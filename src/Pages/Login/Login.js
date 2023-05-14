@@ -6,7 +6,7 @@ import StrokeButton from "../../Components/Button/StrokeButton";
 
 function Login() {
   return (
-    <div>
+    <style.Wrap>
       <style.LogoBlock>
         <img
           className="logoImg"
@@ -55,7 +55,7 @@ function Login() {
       <FullButton btnName={"로그인"} />
       <StrokeButton btnName={"회원가입"} />
       {/* <style.ButtonBlock type="button">회원가입</style.ButtonBlock> */}
-    </div>
+    </style.Wrap>
   );
 }
 

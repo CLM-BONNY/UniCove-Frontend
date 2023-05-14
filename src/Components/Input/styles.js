@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: ${(props) => props.top || "20px"};
+`;
+
 export const TitleBlock = styled.div`
   color: gray;
   width: 413px;

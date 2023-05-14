@@ -6,7 +6,7 @@ import StrokeButton from "../../Components/Button/StrokeButton";
 
 function Join() {
   return (
-    <div>
+    <style.Wrap>
       <header>
         <style.Head>
           <style.Back
@@ -130,7 +130,7 @@ function Join() {
       <FullButton btnName={"가입하기"} />
       {/* <style.BackButtonBlock type="button">뒤로가기</style.BackButtonBlock> */}
       <StrokeButton btnName={"뒤로가기"} />
-    </div>
+    </style.Wrap>
   );
 }
 

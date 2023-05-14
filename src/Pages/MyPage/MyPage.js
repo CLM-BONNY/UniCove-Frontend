@@ -4,7 +4,7 @@ import ReadonlyInput from "../../Components/Input/ReadonlyInput";
 
 function MyPage() {
   return (
-    <div>
+    <style.Wrap>
       <header>
         <style.Head>
           <style.Back
@@ -57,7 +57,7 @@ function MyPage() {
         placeholder={"gildong12"}
         color={"black"}
       />
-    </div>
+    </style.Wrap>
   );
 }
 
