@@ -17,6 +17,6 @@ export const InputBlock = styled.div`
     margin: 0 auto;
     margin-bottom: ${(props) => props.marginBottom};
     border: 0;
-    border-bottom: 1px solid #84ccd4;
+    border-bottom: 2px solid #84ccd4;
   }
 `;
