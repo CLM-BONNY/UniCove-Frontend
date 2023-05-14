@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import * as style from "./styles";
 import Input from "../../Components/Input/Input";
+import Header from "../../Components/Header/Header";
 
 function MyPageEdit() {
   return (
     <style.Wrap>
-      <header>
+      {/* <header>
         <style.Head>
           <style.Back
             src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
@@ -13,12 +14,18 @@ function MyPageEdit() {
           <style.Title>내 정보</style.Title>
           <style.Set>완료</style.Set>
         </style.Head>
-      </header>
+      </header> */}
+      <Header title={"내 정보 수정"} />
       <style.ProfileImg>
         <img
           src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}
         ></img>
       </style.ProfileImg>
+      <style.Set>
+        <img
+          src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
+        ></img>
+      </style.Set>
       {/* <style.Label>이름</style.Label>
       <style.Name>홍길동</style.Name> */}
       <Input
