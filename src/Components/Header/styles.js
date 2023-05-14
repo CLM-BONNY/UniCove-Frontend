@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const Wrap = styled.div`
   position: sticky;
-  width: 100%;
-  height: 40px;
+  height: 50px;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #f1f1f5;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 20px;
   text-align: center;
   background-color: #ffffff;
   > img {

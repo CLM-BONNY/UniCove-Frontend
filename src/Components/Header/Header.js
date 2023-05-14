@@ -5,7 +5,7 @@ import FullButton from "../Button/FullButton";
 
 function Header(props) {
   const navigate = useNavigate();
-  
+
   return (
     <style.Wrap>
       <img
@@ -20,7 +20,7 @@ function Header(props) {
           <FullButton
             btnName={"수정"}
             height={"5px"}
-            fontSize={"11px"}
+            fontSize={"13px"}
             onClick={() => {
               navigate("../mypageEdit");
             }}
@@ -36,7 +36,7 @@ function Header(props) {
           <FullButton
             btnName={"완료"}
             height={"5px"}
-            fontSize={"11px"}
+            fontSize={"13px"}
             onClick={props.onClick}
           />
         </style.ButtonBlock>
