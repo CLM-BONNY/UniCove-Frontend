@@ -19,4 +19,7 @@ export const InputBlock = styled.div`
     border: 0;
     border-bottom: 2px solid #84ccd4;
   }
+  input::placeholder {
+    color: ${(props) => props.color};
+  }
 `;

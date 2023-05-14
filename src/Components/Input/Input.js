@@ -7,7 +7,7 @@ export default function Input(props) {
       <style.TitleBlock titlemarginBottom={props.titlemarginBottom}>
         {props.title}
       </style.TitleBlock>
-      <style.InputBlock marginBottom={props.marginBottom}>
+      <style.InputBlock marginBottom={props.marginBottom} color={props.color}>
         <input
           name={props.name}
           type={props.type || "text"}
