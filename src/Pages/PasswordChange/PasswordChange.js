@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import * as style from "./styles";
 import Input from "../../Components/Input/Input";
+import Header from "../../Components/Header/Header";
 
 function PasswordChange() {
   return (
     <style.Wrap>
-      <header>
+      {/* <header>
         <style.Head>
           <style.Back
             src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
@@ -13,7 +14,8 @@ function PasswordChange() {
           <style.Title>비밀번호 변경</style.Title>
           <style.Set>완료</style.Set>
         </style.Head>
-      </header>
+      </header> */}
+      <Header title={"비밀번호 변경"} />
       {/* <style.Label>현재 비밀번호</style.Label>
       <style.PresentPasswordInput>
         <input

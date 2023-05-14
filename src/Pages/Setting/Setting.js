@@ -2,10 +2,12 @@ import React from "react";
 import * as style from "./styles";
 import TitleTab from "../../Components/TitleTab/TitleTab";
 import ContentTab from "../../Components/ContentTab/ContentTab";
+import Header from "../../Components/Header/Header";
 
 function Setting(props) {
   return (
     <style.Wrap>
+      <Header title={"설정"} />
       <TitleTab marginBottom={"5px"} TabTitle={"개인정보"} />
       <ContentTab
         marginBottom={"10px"}

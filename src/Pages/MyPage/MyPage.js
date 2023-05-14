@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import * as style from "./styles";
 import ReadonlyInput from "../../Components/Input/ReadonlyInput";
+import Header from "../../Components/Header/Header";
 
 function MyPage() {
   return (
     <style.Wrap>
-      <header>
+      {/* <header>
         <style.Head>
           <style.Back
             src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
@@ -13,7 +14,8 @@ function MyPage() {
           <style.Title>내 정보</style.Title>
           <style.Set>수정</style.Set>
         </style.Head>
-      </header>
+      </header> */}
+      <Header title={"내 정보"} />
       <style.ProfileImg>
         <img
           src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}

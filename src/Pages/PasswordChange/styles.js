@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 60px 20px 0;
+  padding: 0px 20px 0;
 `;
 
 export const Head = styled.div`

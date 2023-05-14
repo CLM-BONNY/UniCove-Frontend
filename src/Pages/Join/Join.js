@@ -3,18 +3,20 @@ import * as style from "./styles";
 import Input from "../../Components/Input/Input";
 import FullButton from "../../Components/Button/FullButton";
 import StrokeButton from "../../Components/Button/StrokeButton";
+import Header from "../../Components/Header/Header";
 
 function Join() {
   return (
     <style.Wrap>
-      <header>
+      {/* <header>
         <style.Head>
           <style.Back
             src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
           ></style.Back>
           <style.Title>회원가입</style.Title>
         </style.Head>
-      </header>
+      </header> */}
+      <Header title={"회원가입"} />
       <style.ProfileImg>
         <img src={process.env.PUBLIC_URL + "Images/Join/profileImg.svg"}></img>
       </style.ProfileImg>
