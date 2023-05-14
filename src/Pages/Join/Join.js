@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import * as style from "./styles";
+import Input from "../../Components/Input/Input";
+import FullButton from "../../Components/Button/FullButton";
+import StrokeButton from "../../Components/Button/StrokeButton";
 
 function Join() {
   return (
@@ -16,22 +19,36 @@ function Join() {
         <img src={process.env.PUBLIC_URL + "Images/Join/profileImg.svg"}></img>
       </style.ProfileImg>
       <style.Set>설정</style.Set>
-      <style.Label>이름</style.Label>
+      {/* <style.Label>이름</style.Label>
       <style.NameInput>
         <input
           type="text"
           style={{ border: 0, outline: 0, width: "413px" }}
           placeholder="이름를 입력해주세요"
         />
-      </style.NameInput>
-      <style.Label>전화번호</style.Label>
+      </style.NameInput> */}
+      <Input
+        titlemarginBottom={"10px"}
+        title={"이름"}
+        marginBottom={"30px"}
+        name={"JoinNameInput"}
+        placeholder={"이름을 입력해주세요"}
+      />
+      {/* <style.Label>전화번호</style.Label>
       <style.PhoneInput>
         <input
           type="text"
           style={{ border: 0, outline: 0, width: "413px" }}
           placeholder="전화번호를 입력해주세요"
         />
-      </style.PhoneInput>
+      </style.PhoneInput> */}
+      <Input
+        titlemarginBottom={"10px"}
+        title={"전화번호"}
+        marginBottom={"30px"}
+        name={"JoinPhoneInput"}
+        placeholder={"전화번호를 입력해주세요"}
+      />
       <style.Label>주소</style.Label>
       <style.PlaceInput>
         <option value="" selected>
@@ -63,32 +80,56 @@ function Join() {
         <option value="중구">중구</option>
         <option value="중랑구">중랑구</option>
       </style.PlaceInput>
-      <style.Label>아이디</style.Label>
+      {/* <style.Label>아이디</style.Label>
       <style.IdInput>
         <input
           type="text"
           style={{ border: 0, outline: 0, width: "413px" }}
           placeholder="아이디를 입력해주세요"
         />
-      </style.IdInput>
-      <style.Label>비밀번호</style.Label>
+      </style.IdInput> */}
+      <Input
+        titlemarginBottom={"10px"}
+        title={"아이디"}
+        marginBottom={"30px"}
+        name={"JoinIdInput"}
+        placeholder={"아이디를 입력해주세요"}
+      />
+      {/* <style.Label>비밀번호</style.Label>
       <style.PasswordInput>
         <input
           type="password"
           style={{ border: 0, outline: 0, width: "413px" }}
           placeholder="비밀번호를 입력해주세요"
         />
-      </style.PasswordInput>
-      <style.Label>비밀번호 확인</style.Label>
+      </style.PasswordInput> */}
+      <Input
+        titlemarginBottom={"10px"}
+        title={"비밀번호"}
+        marginBottom={"30px"}
+        name={"JoinPasswordInput"}
+        type={"password"}
+        placeholder={"비밀번호를 입력해주세요"}
+      />
+      {/* <style.Label>비밀번호 확인</style.Label>
       <style.PasswordCheck>
         <input
           type="password"
           style={{ border: 0, outline: 0, width: "413px" }}
           placeholder="비밀번호를 한 번 더 입력해주세요"
         />
-      </style.PasswordCheck>
-      <style.ButtonBlock type="submit">가입하기</style.ButtonBlock>
-      <style.BackButtonBlock type="button">뒤로가기</style.BackButtonBlock>
+      </style.PasswordCheck> */}
+      <Input
+        titlemarginBottom={"10px"}
+        title={"비밀번호 확인"}
+        marginBottom={"30px"}
+        name={"JoinPasswordCheckInput"}
+        placeholder={"비밀번호를 한 번 더 입력해주세요"}
+      />
+      {/* <style.ButtonBlock type="submit">가입하기</style.ButtonBlock> */}
+      <FullButton btnName={"가입하기"} />
+      {/* <style.BackButtonBlock type="button">뒤로가기</style.BackButtonBlock> */}
+      <StrokeButton btnName={"뒤로가기"} />
     </div>
   );
 }

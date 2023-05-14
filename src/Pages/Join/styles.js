@@ -62,7 +62,7 @@ export const PlaceInput = styled.select`
   display: block;
   width: 413px;
   border: none;
-  border-bottom: 1px solid #84ccd4;
+  border-bottom: 2px solid #84ccd4;
   color: gray;
   outline: none;
   margin: 0 auto;
@@ -127,4 +127,5 @@ export const Label = styled.div`
   margin: 0 auto;
   margin-bottom: 10px;
   color: gray;
+  font-size: 13px;
 `;
