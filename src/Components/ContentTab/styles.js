@@ -23,5 +23,6 @@ export const ContentTabBlock = styled.div`
 
   div span {
     margin-right: 20px;
+    color: gray;
   }
 `;
