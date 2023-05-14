@@ -2,24 +2,24 @@ import styled from "styled-components";
 
 export const FullButton = styled.div`
   padding: 10px;
+  margin: ${(props) => props.margin || "20px"};
+  width: ${(props) => props.width || "20px"};
+  height: ${(props) => props.height || "20px"};
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: ${(props) => (props.btnSubName ? "flex-start" : "center")};
   justify-content: center;
+  text-align: center;
   border-radius: ${(props) => props.border || "10px"};
   background-color: ${(props) => props.backgroundColor || "#84ccd4"};
   border: 2px solid ${(props) => props.backgroundColor || "#84ccd4"};
-  color: ${(props) => props.backgroundColor || "#ffffff"};
+  color: ${(props) => props.color || "#ffffff"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  > img {
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
-  }
   > span {
-    display: flex;
-    flex-direction: column;
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-    &:last-child {
+    &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
     }
@@ -28,22 +28,21 @@ export const FullButton = styled.div`
 
 export const StrokeButton = styled.div`
   padding: 10px;
+  margin: ${(props) => props.margin || "20px"};
+  width: ${(props) => props.width || "20px"};
+  height: ${(props) => props.height || "20px"};
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  text-align: center;
+  border-radius: ${(props) => props.border || "10px"};
   background-color: #ffffff;
-  color: ${(props) => props.color || "#84ccd4"};
   border: 2px solid ${(props) => props.color || "#84ccd4"};
+  color: ${(props) => props.color || "#84ccd4"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  > img {
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
-  }
   > span {
-    display: flex;
-    flex-direction: column;
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
   }
 `;
