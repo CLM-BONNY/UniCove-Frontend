@@ -17,19 +17,23 @@ export const TitleBlock = styled.div`
 
 export const InputBlock = styled.div`
   width: 413px;
+  height: 100%;
   margin: 0 auto;
   > input {
     width: 413px;
-    /* border: #84ccd4; */
     margin: 0 auto;
     margin-bottom: ${(props) => props.marginBottom};
-    border: 0;
-    /* border-bottom: ${(props) => props.borderSize || "2px"} solid
-    border: ${(props) => props.borderColor || "#84ccd4"}; */
+    border: none;
     border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
-    /* border-bottom: 2px solid #84ccd4; */
   }
   input::placeholder {
     color: ${(props) => props.color};
+  }
+  > textarea {
+    width: 413px;
+    height: 70vh;
+    margin: 0 auto;
+    margin-bottom: ${(props) => props.marginBottom};
+    border: none;
   }
 `;

@@ -19,7 +19,17 @@ export default function Input(props) {
           style={{ outline: 0 }}
           onChange={props.onChange}
           onClick={props.onClick}
-        ></input>
+        />
+        {props.contentPlaceholder && (
+          <textarea
+            name={props.name}
+            type={props.type || "text"}
+            placeholder={props.contentPlaceholder}
+            style={{ outline: 0 }}
+            onChange={props.onChange}
+            onClick={props.onClick}
+          />
+        )}
       </style.InputBlock>
     </style.Wrap>
   );
