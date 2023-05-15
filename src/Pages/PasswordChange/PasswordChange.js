@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as style from "./styles";
 import Input from "../../Components/Input/Input";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 function PasswordChange() {
   return (
@@ -63,6 +64,7 @@ function PasswordChange() {
         type={"password"}
         placeholder={"새 비밀번호를 한 번 더 입력해주세요"}
       />
+      <Footer title={"비밀번호 변경"} />
     </style.Wrap>
   );
 }

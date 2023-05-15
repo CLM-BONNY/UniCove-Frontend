@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as style from "./styles";
 import ReadonlyInput from "../../Components/Input/ReadonlyInput";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 function MyPage() {
   return (
@@ -59,6 +60,7 @@ function MyPage() {
         placeholder={"gildong12"}
         color={"black"}
       />
+      <Footer title={"내 정보"} />
     </style.Wrap>
   );
 }

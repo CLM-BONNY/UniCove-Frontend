@@ -3,6 +3,7 @@ import * as style from "./styles";
 import TitleTab from "../../Components/TitleTab/TitleTab";
 import ContentTab from "../../Components/ContentTab/ContentTab";
 import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
 
 function Setting(props) {
   return (
@@ -46,6 +47,7 @@ function Setting(props) {
         Imogisrc={process.env.PUBLIC_URL + "Images/Setting/Logout.svg"}
         content={"로그아웃"}
       />
+      <Footer title={"설정"} />
     </style.Wrap>
   );
 }
