@@ -14,6 +14,8 @@ export default function ReadonlyInput(props) {
           placeholder={props.placeholder}
           style={{ outline: 0 }}
           readOnly
+          onChange={props.onChange}
+          onClick={props.onClick}
         ></input>
       </style.InputBlock>
     </style.Wrap>
