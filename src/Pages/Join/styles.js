@@ -62,15 +62,25 @@ export const PhoneInput = styled.div`
   border-bottom: 1px solid #84ccd4;
 `;
 
-export const PlaceInput = styled.select`
-  display: block;
-  width: 413px;
-  border: none;
-  border-bottom: 2px solid #84ccd4;
-  color: gray;
-  outline: none;
-  margin: 0 auto;
-  margin-bottom: 30px;
+export const PlaceInput = styled.div`
+  > select {
+    display: block;
+    width: 417px;
+    height: 19px;
+    border: 0;
+    border-bottom: 2px solid #84ccd4;
+    color: gray;
+    outline: none;
+    margin: 0 auto;
+    padding-left: 2px;
+    margin-bottom: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: url("Images/Join/grayDown.svg") no-repeat 97% 50%/20px auto;
+  }
+  > select::-ms-expand {
+    display: none;
+  }
 `;
 
 export const IdInput = styled.div`
