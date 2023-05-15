@@ -12,19 +12,22 @@ export default function Input(props) {
         color={props.color}
         borderColor={props.borderColor}
       >
-        <input
-          name={props.name}
-          type={props.type || "text"}
-          placeholder={props.placeholder}
-          style={{ outline: 0 }}
-          onChange={props.onChange}
-          onClick={props.onClick}
-        />
-        {props.contentPlaceholder && (
+        {props.contentPlaceholder ? (
           <textarea
             name={props.name}
+            value={props.value}
             type={props.type || "text"}
             placeholder={props.contentPlaceholder}
+            style={{ outline: 0 }}
+            onChange={props.onChange}
+            onClick={props.onClick}
+          />
+        ) : (
+          <input
+            name={props.name}
+            value={props.value}
+            type={props.type || "text"}
+            placeholder={props.placeholder}
             style={{ outline: 0 }}
             onChange={props.onChange}
             onClick={props.onClick}
