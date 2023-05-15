@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
 
+export const Wrap = styled.div`
+  padding: 0px 20px 0;
+`;
+
 export const Head = styled.div`
   display: flex;
   align-items: center;
@@ -23,13 +27,14 @@ export const Title = styled.div`
 
 export const Set = styled.button`
   border-radius: 20px;
-  background-color: #84ccd4;
+  background-color: #0f4c75;
   border: none;
   color: #ffffff;
-  width: 84px;
+  width: 86px;
   height: 47.35px;
-  margin-top: 10px;
-  margin-right: 10px;
+  position: absolute;
+  top: 243px;
+  left: 292px;
 `;
 
 export const ProfileImg = styled.div`

@@ -7,7 +7,7 @@ export const FullButton = styled.div`
   height: ${(props) => props.height || "20px"};
   display: flex;
   flex-direction: column;
-  align-items: ${(props) => props.btnSubName ? "flex-start" : "center"};
+  align-items: ${(props) => (props.btnSubName ? "flex-start" : "center")};
   justify-content: center;
   text-align: center;
   border-radius: ${(props) => props.border || "10px"};
@@ -22,8 +22,8 @@ export const FullButton = styled.div`
     &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
-    };
-  };
+    }
+  }
 `;
 
 export const StrokeButton = styled.div`
@@ -44,5 +44,5 @@ export const StrokeButton = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   > span {
     text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-  };
+  }
 `;
