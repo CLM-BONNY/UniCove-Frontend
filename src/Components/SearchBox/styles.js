@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Wrap = styled.div`
   margin: ${(props) => props.margin};
-  padding: 10px;
-  width: ${(props) => (props.title === "지도" ? "70%" : "100")};
+  padding: 7px;
+  width: ${(props) => props.title === "지도" && "70%"};
   height: 7vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  gap: 18%;
   border-radius: ${(props) => (props.title === "지도" ? "10px" : "0px")};
   border: ${(props) => (props.title === "지도" ? "1px solid #e0e0e0" : "none")};
   border-bottom: 1px solid #e0e0e0;
@@ -17,5 +17,10 @@ export const Wrap = styled.div`
   > img {
     width: 20px;
     height: 20px;
+  }
+  > input {
+    width: 180px;
+    outline: none;
+    border: none;
   }
 `;
