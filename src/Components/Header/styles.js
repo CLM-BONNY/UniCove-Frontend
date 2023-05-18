@@ -12,6 +12,7 @@ export const Wrap = styled.div`
   font-size: 20px;
   text-align: center;
   background-color: #ffffff;
+  z-index: 100;
   > img {
     width: 20px;
     height: 20px;

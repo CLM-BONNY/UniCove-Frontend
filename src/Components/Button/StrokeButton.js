@@ -5,6 +5,7 @@ function StrokeButton(props) {
   return (
     <style.StrokeButton
       onClick={props.onClick}
+      margin={props.margin}
       width={props.width}
       height={props.height}
       border={props.border}

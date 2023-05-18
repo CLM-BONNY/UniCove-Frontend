@@ -3,6 +3,13 @@ import styled from "styled-components";
 export const FullButton = styled.div`
   padding: 10px;
   margin: ${(props) => props.margin || "20px"};
+  ${(props) =>
+    props.position &&
+    `
+  position: ${props.position};
+  top: ${props.top};
+  left: ${props.left};
+  `}
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};
   display: flex;
