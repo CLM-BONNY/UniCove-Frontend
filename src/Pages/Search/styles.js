@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContentBlock = styled.div`
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
