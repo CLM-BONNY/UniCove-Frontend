@@ -49,7 +49,4 @@ export const StrokeButton = styled.div`
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  > span {
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
-  }
 `;
