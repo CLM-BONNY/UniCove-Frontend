@@ -6,46 +6,41 @@ import StrokeButton from "../../Components/Button/StrokeButton";
 import Header from "../../Components/Header/Header";
 
 function Join() {
+  const title = "회원가입";
+  const [selectColor, setSelectColor] = useState("gray");
+  const handleSelectColor = (e) => {
+    if (e.target.value === "text") {
+      setSelectColor("gray");
+    } else {
+      setSelectColor("black");
+    }
+    console.log(e.target.value);
+  };
+
   return (
     <style.Wrap>
-      {/* <header>
-        <style.Head>
-          <style.Back
-            src={process.env.PUBLIC_URL + "Images/Join/back.svg"}
-          ></style.Back>
-          <style.Title>회원가입</style.Title>
-        </style.Head>
-      </header> */}
-      <Header title={"회원가입"} />
+      <Header title={title} />
       <style.ProfileImg>
         <img src={process.env.PUBLIC_URL + "Images/Join/profileImg.svg"}></img>
       </style.ProfileImg>
-      <style.Set>설정</style.Set>
-      {/* <style.Label>이름</style.Label>
-      <style.NameInput>
-        <input
-          type="text"
-          style={{ border: 0, outline: 0, width: "413px" }}
-          placeholder="이름를 입력해주세요"
-        />
-      </style.NameInput> */}
+      <FullButton
+        btnName={"설정"}
+        color={"white"}
+        backgroundColor={"#0F4C75"}
+        position={"absolute"}
+        width={"51px"}
+        height={"22.35px"}
+        top={"243px"}
+        left={"252px"}
+        border={"30px"}
+      ></FullButton>
       <Input
         titlemarginBottom={"10px"}
         title={"이름"}
         marginBottom={"30px"}
         name={"JoinNameInput"}
         placeholder={"이름을 입력해주세요"}
-        // borderSize={"0px"}
-        // borderColor={"#FFFFFF"}
       />
-      {/* <style.Label>전화번호</style.Label>
-      <style.PhoneInput>
-        <input
-          type="text"
-          style={{ border: 0, outline: 0, width: "413px" }}
-          placeholder="전화번호를 입력해주세요"
-        />
-      </style.PhoneInput> */}
       <Input
         titlemarginBottom={"10px"}
         title={"전화번호"}
@@ -55,8 +50,8 @@ function Join() {
       />
       <style.Label>주소</style.Label>
       <style.PlaceInput>
-        <select>
-          <option value="" selected>
+        <select onChange={handleSelectColor} style={{ color: selectColor }}>
+          <option value="text" selected>
             주소 선택하기
           </option>
           <option value="강남구">강남구</option>
@@ -86,14 +81,6 @@ function Join() {
           <option value="중랑구">중랑구</option>
         </select>
       </style.PlaceInput>
-      {/* <style.Label>아이디</style.Label>
-      <style.IdInput>
-        <input
-          type="text"
-          style={{ border: 0, outline: 0, width: "413px" }}
-          placeholder="아이디를 입력해주세요"
-        />
-      </style.IdInput> */}
       <Input
         titlemarginBottom={"10px"}
         title={"아이디"}
@@ -101,14 +88,6 @@ function Join() {
         name={"JoinIdInput"}
         placeholder={"아이디를 입력해주세요"}
       />
-      {/* <style.Label>비밀번호</style.Label>
-      <style.PasswordInput>
-        <input
-          type="password"
-          style={{ border: 0, outline: 0, width: "413px" }}
-          placeholder="비밀번호를 입력해주세요"
-        />
-      </style.PasswordInput> */}
       <Input
         titlemarginBottom={"10px"}
         title={"비밀번호"}
@@ -117,14 +96,6 @@ function Join() {
         type={"password"}
         placeholder={"비밀번호를 입력해주세요"}
       />
-      {/* <style.Label>비밀번호 확인</style.Label>
-      <style.PasswordCheck>
-        <input
-          type="password"
-          style={{ border: 0, outline: 0, width: "413px" }}
-          placeholder="비밀번호를 한 번 더 입력해주세요"
-        />
-      </style.PasswordCheck> */}
       <Input
         titlemarginBottom={"10px"}
         title={"비밀번호 확인"}
@@ -132,10 +103,22 @@ function Join() {
         name={"JoinPasswordCheckInput"}
         placeholder={"비밀번호를 한 번 더 입력해주세요"}
       />
-      {/* <style.ButtonBlock type="submit">가입하기</style.ButtonBlock> */}
-      <FullButton btnName={"가입하기"} />
-      {/* <style.BackButtonBlock type="button">뒤로가기</style.BackButtonBlock> */}
-      <StrokeButton btnName={"뒤로가기"} />
+      <style.OuterButton>
+        <FullButton
+          btnName={"가입하기"}
+          width={"400px"}
+          height={"25px"}
+          margin={"10px 0px"}
+        />
+      </style.OuterButton>
+      <style.OuterButton>
+        <StrokeButton
+          btnName={"뒤로가기"}
+          width={"400px"}
+          height={"25px"}
+          margin={"0px 0px 20px 0px"}
+        />
+      </style.OuterButton>
     </style.Wrap>
   );
 }
