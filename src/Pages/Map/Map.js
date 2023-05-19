@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import Footer from "../../Components/Footer/Footer";
 import SearchBox from "../../Components/SearchBox/SearchBox";
+import StrokeButton from "../../Components/Button/StrokeButton";
 
 const { kakao } = window;
 
 const Map = () => {
   const title = "지도";
-  console.log(process.env.REACT_APP_KAKAO_API)
   
   useEffect(() => {
     const container = document.getElementById("myMap");
@@ -27,6 +27,7 @@ const Map = () => {
         }}
       ></div>
       <SearchBox title={title}/>
+      <StrokeButton title={title} color={"#ffffff"} src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}/>
       <Footer title={title} />
     </>
   );
