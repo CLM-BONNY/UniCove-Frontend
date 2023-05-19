@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import * as style from "./styles";
 import Input from "../../Components/Input/Input";
 import Header from "../../Components/Header/Header";
@@ -7,6 +7,77 @@ import FullButton from "../../Components/Button/FullButton";
 
 function MyPageEdit() {
   const title = "내 정보 수정";
+  const [write, setWrite] = useState({
+    MypageEditName: "",
+    MypageEditPhone: "",
+    MypageEditPlace: "",
+    MypageEditId: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setWrite((prevWrite) => ({
+      ...prevWrite,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async () => {
+    console.log(write);
+    const inputName = write.MypageEditName;
+    const inputPhone = write.MypageEditPhone;
+    const inputPlace = write.MypageEditPlace;
+    const inputId = write.MypageEditId;
+    const placeList = [
+      "강남구",
+      "강동구",
+      "강북구",
+      "강서구",
+      "관악구",
+      "광진구",
+      "구로구",
+      "금천구",
+      "노원구",
+      "도봉구",
+      "동대문구",
+      "동작구",
+      "마포구",
+      "서대문구",
+      "서초구",
+      "성동구",
+      "성북구",
+      "송파구",
+      "양천구",
+      "영등포구",
+      "용산구",
+      "은평구",
+      "종로구",
+      "중구",
+      "중랑구",
+    ];
+    const phoneRegex = /^\d{3}-\d{4}-\d{4}$/;
+    const filteredId = inputId.replace(/[^a-zA-Z0-9]/g, "");
+    if (!phoneRegex.test(inputPhone) && inputPhone.length > 0) {
+      alert("알맞지 않은 전화번호입니다");
+    }
+    if (!placeList.includes(inputPlace) && inputPlace.length > 0) {
+      alert("알맞지 않은 주소입니다");
+    }
+    if (!(filteredId === inputId) && inputId.length > 0) {
+      alert("알맞지 않은 아이디입니다");
+    }
+  };
+  const inputRef = useRef(null);
+  const onUploadImage = useCallback((e) => {
+    if (!e.target.files) {
+      return;
+    }
+    console.log(e.target.files[0].name);
+  }, []);
+  const onUploadImageButtonClick = useCallback(() => {
+    if (!inputRef.current) {
+      return;
+    }
+    inputRef.current.click();
+  }, []);
   const [namecolor, setNameColor] = useState(true);
   const handleNameColor = () => {
     setNameColor(!namecolor);
@@ -51,7 +122,9 @@ function MyPageEdit() {
 
   const [placeplaceholder, setPlaceplaceholder] = useState("성북구");
   const handlePlaceClick = () => {
-    setPlaceplaceholder("변경할 주소를 입력해주세요");
+    setPlaceplaceholder(
+      "변경할 주소를 입력해주세요 (서울특별시의 구만 입력해주세요 ex)oo구)"
+    );
     setNameColor("black");
     setPhoneColor("black");
     setIdColor("black");
@@ -73,7 +146,7 @@ function MyPageEdit() {
 
   return (
     <style.Wrap>
-      <Header title={title} />
+      <Header title={title} onClick={handleSubmit} />
       <style.ProfileImg>
         <img
           src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}
@@ -88,7 +161,15 @@ function MyPageEdit() {
         left={"252px"}
         border={"30px"}
         src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
+        onClick={onUploadImageButtonClick}
       ></FullButton>
+      <input
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        ref={inputRef}
+        onChange={onUploadImage}
+      />
       <Input
         titlemarginBottom={"10px"}
         title={"이름"}
@@ -96,6 +177,7 @@ function MyPageEdit() {
         name={"MypageEditName"}
         placeholder={nameplaceholder}
         color={namecolor ? "black" : "gray"}
+        onChange={handleChange}
         onClick={() => {
           handleNameColor();
           handleNameClick();
@@ -108,6 +190,7 @@ function MyPageEdit() {
         name={"MypageEditPhone"}
         placeholder={phoneplaceholder}
         color={phonecolor ? "black" : "gray"}
+        onChange={handleChange}
         onClick={() => {
           handlePhoneColor();
           handlePhoneClick();
@@ -120,6 +203,7 @@ function MyPageEdit() {
         name={"MypageEditPlace"}
         placeholder={placeplaceholder}
         color={placecolor ? "black" : "gray"}
+        onChange={handleChange}
         onClick={() => {
           handlePlaceColor();
           handlePlaceClick();
@@ -132,6 +216,7 @@ function MyPageEdit() {
         name={"MypageEditId"}
         placeholder={idplaceholder}
         color={idcolor ? "black" : "gray"}
+        onChange={handleChange}
         onClick={() => {
           handleIdColor();
           handleIdClick();
