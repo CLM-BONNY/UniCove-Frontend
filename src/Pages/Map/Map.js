@@ -27,7 +27,7 @@ const Map = () => {
         }}
       ></div>
       <SearchBox title={title}/>
-      <StrokeButton title={title} color={"#ffffff"} src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}/>
+      <StrokeButton position={"absolute"} color={"#ffffff"} src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}/>
       <Footer title={title} />
     </>
   );

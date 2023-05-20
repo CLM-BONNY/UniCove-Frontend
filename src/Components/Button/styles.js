@@ -36,6 +36,13 @@ export const FullButton = styled.div`
 export const StrokeButton = styled.div`
   padding: 10px;
   margin: ${(props) => props.margin || "20px"};
+  ${(props) =>
+    props.position &&
+    `
+  position: ${props.position};
+  bottom: 10%;
+  right: 1%;
+  `}
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};
   display: flex;
@@ -49,4 +56,5 @@ export const StrokeButton = styled.div`
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 `;
