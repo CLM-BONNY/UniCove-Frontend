@@ -9,6 +9,7 @@ export const FullButton = styled.div`
   position: ${props.position};
   top: ${props.top};
   left: ${props.left};
+  transform: ${props.transform || "none"};
   `}
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};

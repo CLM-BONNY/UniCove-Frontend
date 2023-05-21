@@ -12,6 +12,7 @@ function StrokeButton(props) {
       backgroundColor={props.backgroundColor}
       color={props.color}
       fontSize={props.fontSize}
+      position={props.position}
     >
       {props.src && <img src={props.src} />}
       {props.btnName && <span>{props.btnName}</span>}
