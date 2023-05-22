@@ -111,7 +111,7 @@ function MyPageEdit() {
 
   const [phoneplaceholder, setPhoneplaceholder] = useState("010-1234-5678");
   const handlePhoneClick = () => {
-    setPhoneplaceholder("변경할 전화번호를 입력해주세요");
+    setPhoneplaceholder("변경할 전화번호를 입력해주세요 (010-0000-0000)");
     setNameColor("black");
     setPlaceColor("black");
     setIdColor("black");
@@ -135,7 +135,7 @@ function MyPageEdit() {
 
   const [idplaceholder, setIdplaceholder] = useState("gildong12");
   const handleIdClick = () => {
-    setIdplaceholder("변경할 아이디를 입력해주세요");
+    setIdplaceholder("변경할 아이디를 입력해주세요 (영어와 숫자만 가능)");
     setNameColor("black");
     setPhoneColor("black");
     setPlaceColor("black");
@@ -145,85 +145,87 @@ function MyPageEdit() {
   };
 
   return (
-    <style.Wrap>
+    <>
       <Header title={title} onClick={handleSubmit} />
-      <style.ProfileImg>
-        <img
-          src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}
-        ></img>
-      </style.ProfileImg>
-      <FullButton
-        backgroundColor={"#0F4C75"}
-        position={"absolute"}
-        width={"51px"}
-        height={"22.35px"}
-        top={"243px"}
-        left={"252px"}
-        border={"30px"}
-        src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
-        onClick={onUploadImageButtonClick}
-      ></FullButton>
-      <input
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        ref={inputRef}
-        onChange={onUploadImage}
-      />
-      <Input
-        titlemarginBottom={"10px"}
-        title={"이름"}
-        marginBottom={"30px"}
-        name={"MypageEditName"}
-        placeholder={nameplaceholder}
-        color={namecolor ? "black" : "gray"}
-        onChange={handleChange}
-        onClick={() => {
-          handleNameColor();
-          handleNameClick();
-        }}
-      />
-      <Input
-        titlemarginBottom={"10px"}
-        title={"전화번호"}
-        marginBottom={"30px"}
-        name={"MypageEditPhone"}
-        placeholder={phoneplaceholder}
-        color={phonecolor ? "black" : "gray"}
-        onChange={handleChange}
-        onClick={() => {
-          handlePhoneColor();
-          handlePhoneClick();
-        }}
-      />
-      <Input
-        titlemarginBottom={"10px"}
-        title={"주소"}
-        marginBottom={"30px"}
-        name={"MypageEditPlace"}
-        placeholder={placeplaceholder}
-        color={placecolor ? "black" : "gray"}
-        onChange={handleChange}
-        onClick={() => {
-          handlePlaceColor();
-          handlePlaceClick();
-        }}
-      />
-      <Input
-        titlemarginBottom={"10px"}
-        title={"아이디"}
-        marginBottom={"30px"}
-        name={"MypageEditId"}
-        placeholder={idplaceholder}
-        color={idcolor ? "black" : "gray"}
-        onChange={handleChange}
-        onClick={() => {
-          handleIdColor();
-          handleIdClick();
-        }}
-      />
+      <style.Wrap>
+        <style.ProfileImg>
+          <img
+            src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}
+          ></img>
+        </style.ProfileImg>
+        <FullButton
+          backgroundColor={"#0F4C75"}
+          position={"absolute"}
+          width={"51px"}
+          height={"22.35px"}
+          top={"243px"}
+          left={"252px"}
+          border={"30px"}
+          src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
+          onClick={onUploadImageButtonClick}
+        ></FullButton>
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          ref={inputRef}
+          onChange={onUploadImage}
+        />
+        <Input
+          titlemarginBottom={"10px"}
+          title={"이름"}
+          marginBottom={"30px"}
+          name={"MypageEditName"}
+          placeholder={nameplaceholder}
+          color={namecolor ? "black" : "gray"}
+          onChange={handleChange}
+          onClick={() => {
+            handleNameColor();
+            handleNameClick();
+          }}
+        />
+        <Input
+          titlemarginBottom={"10px"}
+          title={"전화번호"}
+          marginBottom={"30px"}
+          name={"MypageEditPhone"}
+          placeholder={phoneplaceholder}
+          color={phonecolor ? "black" : "gray"}
+          onChange={handleChange}
+          onClick={() => {
+            handlePhoneColor();
+            handlePhoneClick();
+          }}
+        />
+        <Input
+          titlemarginBottom={"10px"}
+          title={"주소"}
+          marginBottom={"30px"}
+          name={"MypageEditPlace"}
+          placeholder={placeplaceholder}
+          color={placecolor ? "black" : "gray"}
+          onChange={handleChange}
+          onClick={() => {
+            handlePlaceColor();
+            handlePlaceClick();
+          }}
+        />
+        <Input
+          titlemarginBottom={"10px"}
+          title={"아이디"}
+          marginBottom={"30px"}
+          name={"MypageEditId"}
+          placeholder={idplaceholder}
+          color={idcolor ? "black" : "gray"}
+          onChange={handleChange}
+          onClick={() => {
+            handleIdColor();
+            handleIdClick();
+          }}
+        />
+      </style.Wrap>
       <Footer title={title} />
-    </style.Wrap>
+    </>
   );
 }
 
