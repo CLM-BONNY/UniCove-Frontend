@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import SearchBox from "../../Components/SearchBox/SearchBox";
 import StrokeButton from "../../Components/Button/StrokeButton";
 
 const { kakao } = window;
@@ -19,6 +19,7 @@ const Map = () => {
 
   return (
     <>
+      <Header title={title} />
       <div
         id="myMap"
         style={{
@@ -26,7 +27,6 @@ const Map = () => {
           height: "100vh",
         }}
       ></div>
-      <SearchBox title={title}/>
       <StrokeButton position={"absolute"} color={"#ffffff"} src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}/>
       <Footer title={title} />
     </>
