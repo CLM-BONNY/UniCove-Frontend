@@ -4,7 +4,7 @@ export const Wrap = styled.div`
   padding: 20px 20px 10px 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
 `;
 
 export const Name = styled.div`
