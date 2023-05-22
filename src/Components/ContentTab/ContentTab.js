@@ -11,7 +11,13 @@ export default function ContentTab(props) {
         <img className="Imogi" src={props.Imogisrc}></img>
         <span>{props.content}</span>
         <div>
-          {props.src && <img className="Right" src={props.src} />}
+          {props.src && (
+            <img
+              className="Right"
+              src={props.src}
+              onClick={props.onImageClick}
+            />
+          )}
           <span>{props.text}</span>
         </div>
       </style.ContentTabBlock>
