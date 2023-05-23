@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 10px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   border-bottom: 1px solid #e0e0e0;
 `;
 
