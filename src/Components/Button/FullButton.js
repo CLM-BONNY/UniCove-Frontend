@@ -5,6 +5,7 @@ function FullButton(props) {
   return (
     <style.FullButton
       onClick={props.onClick}
+      padding={props.padding}
       margin={props.margin}
       width={props.width}
       height={props.height}

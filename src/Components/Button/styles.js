@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FullButton = styled.div`
-  padding: 10px;
+  padding: ${(props) => props.padding || "10px"};
   margin: ${(props) => props.margin || "20px"};
   ${(props) =>
     props.position &&
@@ -25,8 +25,8 @@ export const FullButton = styled.div`
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   > span {
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
     &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
