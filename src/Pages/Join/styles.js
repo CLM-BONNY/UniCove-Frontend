@@ -10,6 +10,11 @@ export const ProfileImg = styled.div`
   top: 93px;
   left: 128px;
   margin: 20px auto 50px auto;
+  > img {
+    border-radius: 180px;
+    width: 220px;
+    height: 220px;
+  }
 `;
 
 export const PlaceInput = styled.div`
