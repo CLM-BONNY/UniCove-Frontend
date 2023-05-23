@@ -351,33 +351,57 @@ function Join() {
       return null;
     }
     if (inputImage !== "") {
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        base64String = reader.result;
-        axios
-          .post(`${address}/api/auth/register`, {
-            name: inputName,
-            phone: inputPhone,
-            address: inputPlace,
-            username: inputId,
-            password: inputPassword,
-            profile: base64String,
-          })
-          .then(function (response) {
-            console.log(response.data.token);
-            if (response.status === 200) {
-              const token = response.data.token;
-              const extractedToken = token.replace(/^Bearer\s+/i, "");
-              console.log(extractedToken);
-              alert("회원가입에 성공하였습니다");
-            }
-            // 메인 페이지로 이동
-          })
-          .catch(function (error) {
-            console.log(error);
-            alert("이미 존재하는 회원입니다");
-          });
-      };
+      axios
+        .post(`${address}/api/auth/register`, {
+          name: inputName,
+          phone: inputPhone,
+          address: inputPlace,
+          username: inputId,
+          password: inputPassword,
+          profile: base64String,
+        })
+        .then(function (response) {
+          console.log(response.data.token);
+          if (response.status === 200) {
+            const token = response.data.token;
+            const extractedToken = token.replace(/^Bearer\s+/i, "");
+            console.log(extractedToken);
+            alert("회원가입에 성공하였습니다");
+          }
+          // 메인 페이지로 이동
+        })
+        .catch(function (error) {
+          console.log(error);
+          alert("이미 존재하는 회원입니다");
+        });
+      // const reader = new FileReader();
+      // reader.onloadend = function () {
+      //   base64String = reader.result;
+      //   console.log(base64String)
+      //   axios
+      //     .post(`${address}/api/auth/register`, {
+      //       name: inputName,
+      //       phone: inputPhone,
+      //       address: inputPlace,
+      //       username: inputId,
+      //       password: inputPassword,
+      //       profile: base64String,
+      //     })
+      //     .then(function (response) {
+      //       console.log(response.data.token);
+      //       if (response.status === 200) {
+      //         const token = response.data.token;
+      //         const extractedToken = token.replace(/^Bearer\s+/i, "");
+      //         console.log(extractedToken);
+      //         alert("회원가입에 성공하였습니다");
+      //       }
+      //       // 메인 페이지로 이동
+      //     })
+      //     .catch(function (error) {
+      //       console.log(error);
+      //       alert("이미 존재하는 회원입니다");
+      //     });
+      // };
     } else {
       axios
         .post(`${address}/api/auth/register`, {
@@ -402,33 +426,33 @@ function Join() {
           alert("이미 존재하는 회원입니다");
         });
     }
-    const reader = new FileReader();
-    reader.onloadend = function () {
-      base64String = reader.result;
-      axios
-        .post(`${address}/api/auth/register`, {
-          name: inputName,
-          phone: inputPhone,
-          address: inputPlace,
-          username: inputId,
-          password: inputPassword,
-          ...(inputImage !== "" && { profile: base64String }),
-        })
-        .then(function (response) {
-          console.log(response.data.token);
-          if (response.status === 200) {
-            const token = response.data.token;
-            const extractedToken = token.replace(/^Bearer\s+/i, "");
-            console.log(extractedToken);
-            alert("회원가입에 성공하였습니다");
-          }
-          // 메인 페이지로 이동
-        })
-        .catch(function (error) {
-          console.log(error);
-          alert("이미 존재하는 회원입니다");
-        });
-    };
+    // const reader = new FileReader();
+    // reader.onloadend = function () {
+    //   base64String = reader.result;
+    //   axios
+    //     .post(`${address}/api/auth/register`, {
+    //       name: inputName,
+    //       phone: inputPhone,
+    //       address: inputPlace,
+    //       username: inputId,
+    //       password: inputPassword,
+    //       ...(inputImage !== "" && { profile: base64String }),
+    //     })
+    //     .then(function (response) {
+    //       console.log(response.data.token);
+    //       if (response.status === 200) {
+    //         const token = response.data.token;
+    //         const extractedToken = token.replace(/^Bearer\s+/i, "");
+    //         console.log(extractedToken);
+    //         alert("회원가입에 성공하였습니다");
+    //       }
+    //       // 메인 페이지로 이동
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //       alert("이미 존재하는 회원입니다");
+    //     });
+    // };
   };
   const inputRef = useRef(null);
   // const onUploadImage = useCallback((e) => {
@@ -446,13 +470,14 @@ function Join() {
     if (!e.target.files) {
       return;
     }
+    const file = e.target.files[0].name;
 
     const reader = new FileReader();
     reader.onloadend = function () {
       setBase64String(reader.result);
       setWrite((prevWrite) => ({
         ...prevWrite,
-        JoinImageInput: e.target.files[0].name,
+        JoinImageInput: base64String,
       }));
     };
     reader.readAsDataURL(e.target.files[0]);
@@ -478,7 +503,7 @@ function Join() {
   };
   const scrollRef = useRef(null);
   const handleScroll = () => {};
-  console.log(write.JoinImageInput);
+  console.log(base64String);
   return (
     <>
       <Header title={title} />
@@ -491,7 +516,7 @@ function Join() {
           <style.ProfileImg>
             <img
               src={
-                write.JoinImageInput
+                base64String
                   ? base64String
                   : process.env.PUBLIC_URL + "Images/Join/profileImg.svg"
               }
