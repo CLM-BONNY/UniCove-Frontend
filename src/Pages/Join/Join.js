@@ -286,6 +286,7 @@ import FullButton from "../../Components/Button/FullButton";
 import StrokeButton from "../../Components/Button/StrokeButton";
 import Header from "../../Components/Header/Header";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Join() {
   const address = process.env.REACT_APP_ADDRESS;
@@ -418,6 +419,7 @@ function Join() {
             const extractedToken = token.replace(/^Bearer\s+/i, "");
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
+            navigate("/mypage");
           }
           // 메인 페이지로 이동
         })
@@ -470,7 +472,7 @@ function Join() {
     if (!e.target.files) {
       return;
     }
-    const file = e.target.files[0].name;
+    const file = e.target.files[0];
 
     const reader = new FileReader();
     reader.onloadend = function () {
@@ -480,7 +482,7 @@ function Join() {
         JoinImageInput: base64String,
       }));
     };
-    reader.readAsDataURL(e.target.files[0]);
+    reader.readAsDataURL(file);
   }, []);
   const onUploadImageButtonClick = useCallback(() => {
     if (!inputRef.current) {
@@ -504,6 +506,7 @@ function Join() {
   const scrollRef = useRef(null);
   const handleScroll = () => {};
   console.log(base64String);
+  const navigate = useNavigate();
   return (
     <>
       <Header title={title} />
@@ -639,6 +642,9 @@ function Join() {
             width={"400px"}
             height={"25px"}
             margin={"0px 0px 20px 0px"}
+            onClick={() => {
+              navigate(-1);
+            }}
           />
         </style.OuterButton>
       </style.Wrap>

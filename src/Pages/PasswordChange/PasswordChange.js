@@ -30,12 +30,15 @@ function PasswordChange() {
       inputCheckPassword.length === 0
     ) {
       alert("전부 입력해주세요");
+      return;
     }
     if (!passwordRegex.test(inputNewPassword)) {
       alert("알맞지 않은 비밀번호입니다");
+      return;
     }
     if (!(inputNewPassword === inputCheckPassword)) {
       alert("비밀번호를 동일하게 입력해주세요");
+      return;
     }
   };
   return (
