@@ -21,9 +21,7 @@ function Header(props) {
             btnName={"수정"}
             height={"5px"}
             fontSize={"13px"}
-            onClick={() => {
-              navigate("../mypageEdit");
-            }}
+            onClick={props.onClick}
           />
         </style.ButtonBlock>
       ) : props.title === "내 정보 수정" ||

@@ -4,7 +4,7 @@ import Input from "../../Components/Input/Input";
 import FullButton from "../../Components/Button/FullButton";
 import StrokeButton from "../../Components/Button/StrokeButton";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const address = process.env.REACT_APP_ADDRESS;
@@ -33,9 +33,14 @@ function Login() {
         if (response.status === 200) {
           const token = response.data.token;
           const extractedToken = token.replace(/^Bearer\s+/i, "");
+          console.log(token);
           console.log(extractedToken);
           alert("로그인에 성공했습니다");
-          navigate("/mypage");
+          navigate("/mypage", {
+            state: {
+              token: token,
+            },
+          });
         }
       })
       .catch(function (error) {

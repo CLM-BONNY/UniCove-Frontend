@@ -4,10 +4,13 @@ import ReadonlyInput from "../../Components/Input/ReadonlyInput";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function MyPage() {
-  let name, id, place, profile, phone;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const token = location.state?.token;
+  console.log(token);
   const address = process.env.REACT_APP_ADDRESS;
   const [userData, setUserData] = useState({
     name: "",
@@ -23,8 +26,7 @@ function MyPage() {
     axios
       .get(`${address}/api/auth/getUser`, {
         headers: {
-          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo
-          `,
+          Authorization: `${token}`,
         },
       })
       .then(function (response) {
@@ -46,7 +48,16 @@ function MyPage() {
   const title = "내 정보";
   return (
     <>
-      <Header title={title} />
+      <Header
+        title={title}
+        onClick={() => {
+          navigate("/mypageedit", {
+            state: {
+              token: token,
+            },
+          });
+        }}
+      />
       <style.Wrap>
         <style.ProfileImg>
           <img

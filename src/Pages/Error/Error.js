@@ -24,7 +24,7 @@ function Write() {
   const handleSave = async () => {
     console.log("Input value:", write);
     if (write.writeTitle && write.writeContent) {
-      alert("오류 제보가 완료되었습니다!");
+      alert("오류 제보가 완료되었습니다");
       navigate("../board");
     } else alert("제목과 내용을 모두 입력해 주세요!");
   };

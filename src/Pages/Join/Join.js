@@ -368,7 +368,11 @@ function Join() {
             const extractedToken = token.replace(/^Bearer\s+/i, "");
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
-            navigate("/mypage");
+            navigate("/mypage", {
+              state: {
+                token: token,
+              },
+            });
           }
           // 메인 페이지로 이동
         })
@@ -420,7 +424,11 @@ function Join() {
             const extractedToken = token.replace(/^Bearer\s+/i, "");
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
-            navigate("/mypage");
+            navigate("/mypage", {
+              state: {
+                token: token,
+              },
+            });
           }
           // 메인 페이지로 이동
         })

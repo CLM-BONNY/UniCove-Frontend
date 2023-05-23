@@ -5,9 +5,11 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import FullButton from "../../Components/Button/FullButton";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function MyPageEdit() {
+  const location = useLocation();
+  const token = location.state?.token;
   const [userData, setUserData] = useState({
     name: "",
     id: "",
@@ -22,7 +24,7 @@ function MyPageEdit() {
     axios
       .get(`${address}/api/auth/getUser`, {
         headers: {
-          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+          Authorization: `${token}`,
         },
       })
       .then(function (response) {
@@ -124,7 +126,7 @@ function MyPageEdit() {
           },
           {
             headers: {
-              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+              Authorization: `${token}`,
             },
           }
         )
@@ -136,6 +138,13 @@ function MyPageEdit() {
         .catch(function (error) {
           console.log(error);
         });
+    } else if (
+      inputName === "" &&
+      inputId === "" &&
+      inputPlace === "" &&
+      inputPhone === ""
+    ) {
+      navigate(-1);
     } else {
       axios
         .post(
@@ -148,7 +157,7 @@ function MyPageEdit() {
           },
           {
             headers: {
-              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+              Authorization: `${token}`,
             },
           }
         )
@@ -158,7 +167,7 @@ function MyPageEdit() {
           navigate(-1);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log("no profile: " + error);
         });
     }
     // axios
