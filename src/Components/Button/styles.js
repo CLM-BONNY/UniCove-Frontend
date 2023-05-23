@@ -26,7 +26,6 @@ export const FullButton = styled.div`
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   > span {
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
     &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
