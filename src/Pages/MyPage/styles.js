@@ -10,4 +10,9 @@ export const ProfileImg = styled.div`
   top: 93px;
   left: 128px;
   margin: 20px auto 80px auto;
+  > img {
+    border-radius: 180px;
+    width: 220px;
+    height: 220px;
+  }
 `;
