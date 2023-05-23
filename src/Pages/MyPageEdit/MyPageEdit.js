@@ -4,14 +4,19 @@ import Input from "../../Components/Input/Input";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import FullButton from "../../Components/Button/FullButton";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function MyPageEdit() {
+  const address = process.env.REACT_APP_ADDRESS;
   const title = "내 정보 수정";
+  const [base64String, setBase64String] = useState(null);
   const [write, setWrite] = useState({
     MypageEditName: "",
     MypageEditPhone: "",
     MypageEditPlace: "",
     MypageEditId: "",
+    MyPageEditImage: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,12 +25,15 @@ function MyPageEdit() {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
+
   const handleSubmit = async () => {
     console.log(write);
     const inputName = write.MypageEditName;
     const inputPhone = write.MypageEditPhone;
     const inputPlace = write.MypageEditPlace;
     const inputId = write.MypageEditId;
+    const inputImage = write.MyPageEditImage;
     const placeList = [
       "강남구",
       "강동구",
@@ -57,20 +65,95 @@ function MyPageEdit() {
     const filteredId = inputId.replace(/[^a-zA-Z0-9]/g, "");
     if (!phoneRegex.test(inputPhone) && inputPhone.length > 0) {
       alert("알맞지 않은 전화번호입니다");
+      return null;
     }
     if (!placeList.includes(inputPlace) && inputPlace.length > 0) {
       alert("알맞지 않은 주소입니다");
+      return null;
     }
     if (!(filteredId === inputId) && inputId.length > 0) {
       alert("알맞지 않은 아이디입니다");
+      return null;
     }
+    if (inputImage !== "") {
+      axios
+        .post(`${address}/api/auth/changeDB`, {
+          ...(inputName !== "" && { name: inputName }),
+          ...(inputId !== "" && { username: inputId }),
+          ...(inputPlace !== "" && { address: inputPlace }),
+          ...(inputImage !== "" && { profile: inputImage }),
+          ...(inputPhone !== "" && { phone: base64String }),
+        })
+        .then(function (response) {
+          console.log(response);
+          navigate(-1);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
+      axios
+        .post(
+          `${address}/api/auth/changeDB`,
+          {
+            ...(inputName !== "" && { name: inputName }),
+            ...(inputId !== "" && { username: inputId }),
+            ...(inputPlace !== "" && { address: inputPlace }),
+            ...(inputPhone !== "" && { phone: inputPhone }),
+          },
+          {
+            headers: {
+              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg0NzcxMzMxLCJleHAiOjE2ODczNjMzMzF9.1FZ9bPxFbjlJthpIfIwGIMk3lr_GXc3aQ_kNTWjeKpQ`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+          navigate(-1);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+    // axios
+    //   .post(
+    //     `${address}/api/auth/changeDB`,
+    //     {
+    //       ...(inputName !== "" && { name: inputName }),
+    //       ...(inputId !== "" && { username: inputId }),
+    //       ...(inputPlace !== "" && { address: inputPlace }),
+    //       ...(inputImage !== "" && { profile: inputImage }),
+    //       ...(inputPhone !== "" && { phone: inputPhone }),
+    //     },
+    //     {
+    //       headers: {
+    //         Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg0NzcxMzMxLCJleHAiOjE2ODczNjMzMzF9.1FZ9bPxFbjlJthpIfIwGIMk3lr_GXc3aQ_kNTWjeKpQ`,
+    //       },
+    //     }
+    //   )
+    //   .then(function (response) {
+    //     console.log(response);
+    //     navigate(-1);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
   const inputRef = useRef(null);
   const onUploadImage = useCallback((e) => {
     if (!e.target.files) {
       return;
     }
-    console.log(e.target.files[0].name);
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      setBase64String(reader.result);
+      setWrite((prevWrite) => ({
+        ...prevWrite,
+        MyPageEditImage: base64String,
+      }));
+    };
+    reader.readAsDataURL(file);
   }, []);
   const onUploadImageButtonClick = useCallback(() => {
     if (!inputRef.current) {
@@ -150,7 +233,11 @@ function MyPageEdit() {
       <style.Wrap>
         <style.ProfileImg>
           <img
-            src={process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"}
+            src={
+              base64String
+                ? base64String
+                : process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"
+            }
           ></img>
         </style.ProfileImg>
         <FullButton
@@ -169,12 +256,13 @@ function MyPageEdit() {
           accept="image/*"
           style={{ display: "none" }}
           ref={inputRef}
+          name={"MypageEditImage"}
           onChange={onUploadImage}
         />
         <Input
           titlemarginBottom={"10px"}
           title={"이름"}
-          marginBottom={"30px"}
+          marginBottom={"20px"}
           name={"MypageEditName"}
           placeholder={nameplaceholder}
           color={namecolor ? "black" : "gray"}
@@ -187,7 +275,7 @@ function MyPageEdit() {
         <Input
           titlemarginBottom={"10px"}
           title={"전화번호"}
-          marginBottom={"30px"}
+          marginBottom={"20px"}
           name={"MypageEditPhone"}
           placeholder={phoneplaceholder}
           color={phonecolor ? "black" : "gray"}
@@ -200,7 +288,7 @@ function MyPageEdit() {
         <Input
           titlemarginBottom={"10px"}
           title={"주소"}
-          marginBottom={"30px"}
+          marginBottom={"20px"}
           name={"MypageEditPlace"}
           placeholder={placeplaceholder}
           color={placecolor ? "black" : "gray"}
