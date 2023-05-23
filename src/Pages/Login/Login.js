@@ -3,8 +3,11 @@ import * as style from "./styles";
 import Input from "../../Components/Input/Input";
 import FullButton from "../../Components/Button/FullButton";
 import StrokeButton from "../../Components/Button/StrokeButton";
+import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
+  const address = process.env.REACT_APP_ADDRESS;
   const [write, setWrite] = useState({
     LoginIdInput: "",
     LoginPasswordInput: "",
@@ -20,7 +23,27 @@ function Login() {
     console.log(write);
     const inputId = write.LoginIdInput;
     const inputPassword = write.LoginPasswordInput;
+    axios
+      .post(`${address}/api/auth/login`, {
+        username: inputId,
+        password: inputPassword,
+      })
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+          const token = response.data.token;
+          const extractedToken = token.replace(/^Bearer\s+/i, "");
+          console.log(extractedToken);
+          alert("로그인에 성공했습니다");
+          navigate("/mypage");
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("올바르지 않은 아이디 또는 비밀번호입니다");
+      });
   };
+  const navigate = useNavigate();
   return (
     <>
       <style.Wrap>
@@ -38,6 +61,7 @@ function Login() {
             marginBottom={"30px"}
             name={"LoginIdInput"}
             placeholder={"아이디를 입력해주세요"}
+            onChange={handleChange}
           />
           <Input
             titlemarginBottom={"10px"}
@@ -46,6 +70,7 @@ function Login() {
             name={"LoginPasswordInput"}
             type={"password"}
             placeholder={"비밀번호를 입력해주세요"}
+            onChange={handleChange}
           />
         </form>
         <style.OuterButton>
@@ -54,6 +79,7 @@ function Login() {
             width={"400px"}
             height={"25px"}
             margin={"10px 0px"}
+            onClick={handleSubmit}
           />
         </style.OuterButton>
         <style.OuterButton>
@@ -62,6 +88,9 @@ function Login() {
             width={"400px"}
             height={"25px"}
             margin={"0px 0px 20px 0px"}
+            onClick={() => {
+              navigate("../join");
+            }}
           />
         </style.OuterButton>
       </style.Wrap>
