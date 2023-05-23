@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FullButton = styled.div`
-  padding: 10px;
+  padding: ${(props) => props.padding || "10px"};
   margin: ${(props) => props.margin || "20px"};
   ${(props) =>
     props.position &&
