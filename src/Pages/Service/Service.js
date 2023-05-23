@@ -9,14 +9,56 @@ function Service() {
     <>
       <Header title={title} />
       <style.Wrap>
+        <h3>
+          이 서비스 이용약관(이하 '본 약관')은 서비스 이용에 관한 당사와 이용자
+          간의 권리, 의무, 책임 사항 등을 규정합니다. 이용자는 본 약관에
+          동의함으로써 서비스를 이용할 수 있습니다. 아래의 내용을 주의 깊게
+          읽어주시기 바랍니다.
+        </h3>
+        <h4>1. 약관의 동의와 변경</h4>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          1.1. 본 약관은 이용자가 서비스를 사용하기 전에 동의함으로써 효력이
+          발생합니다. <br />
+          <br />
+          1.2. 당사는 필요한 경우 본 약관을 변경할 수 있으며, 변경된 약관은
+          서비스 내에 공지함으로써 효력이 발생합니다. 변경된 약관에 대한
+          이용자의 동의는 서비스 이용 계속을 통해 간주됩니다. 약관 변경에 대해
+          이의를 제기하고자 하는 이용자는 서비스 이용을 중단해야 합니다.
+          <br />
+        </p>
+        <h4>2. 서비스의 이용</h4>
+        <p>
+          2.1. 이용자는 본 약관과 관련 법령을 준수하여 서비스를 이용해야 합니다.{" "}
+          <br />
+          <br />
+          2.2. 이용자는 자신의 계정과 비밀번호를 안전하게 관리해야 하며,
+          타인에게 계정을 양도하거나 공유해서는 안 됩니다. <br />
+          <br />
+          2.3. 이용자는 서비스를 부정한 목적으로 사용해서는 안 되며, 당사의
+          시스템에 해킹, 모바일 앱의 불법적인 수정 또는 손상, 다른 사용자의
+          개인정보를 부정하게 수집하는 등의 행위를 할 수 없습니다.
+          <br />
+        </p>
+        <h4>3. 서비스의 제공과 변경</h4>
+        <p>
+          3.1. 당사는 이용자에게 안정적이고 지속적인 서비스 제공을 위해 최선을
+          다하겠습니다. 다만, 시스템 점검, 보수 또는 장애, 긴급한 사태 등
+          불가피한 경우 서비스 일시 중단이나 변경이 발생할 수 있습니다. <br />
+          <br />
+          3.2. 당사는 서비스의 내용, 기능, 운영 시간 등을 상시로 개선하고 변경할
+          수 있으며, 이용자에게 사전 공지 없이 변경될 수 있습니다.
+          <br />
+        </p>
+        <h4>4. 서비스의 중단</h4>
+        <p>
+          4.1. 당사는 이용자의 약관 위반, 법령에 위반되는 행위, 서비스의 안정적
+          운영을 방해하는 행위 등의 사유로 서비스 이용을 중단할 수 있습니다.
+          <br />
+          <br />
+          4.2. 이용자는 본 약관에 위반되는 행위를 하거나 당사의 정책 및 지침에
+          반하는 행위를 하지 않아야 합니다. 이를 위반한 경우, 당사는 사전 경고
+          없이 이용자의 서비스 이용을 일시적 또는 영구적으로 중단할 수 있습니다.
+          <br />
         </p>
       </style.Wrap>
       <Footer title={title} />
