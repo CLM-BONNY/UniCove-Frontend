@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import * as style from "./styles";
 import Input from "../../Components/Input/Input";
 import Header from "../../Components/Header/Header";
@@ -8,6 +8,42 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function MyPageEdit() {
+  const [userData, setUserData] = useState({
+    name: "",
+    id: "",
+    place: "",
+    profile: "",
+    phone: "",
+  });
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = () => {
+    axios
+      .get(`${address}/api/auth/getUser`, {
+        headers: {
+          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        const { name, username, address, profile, phone } = response.data;
+        setUserData({
+          name: name || "",
+          id: username || "",
+          place: address || "",
+          profile: profile || "",
+          phone: phone || "",
+        });
+        setNameplaceholder(name || "");
+        setIdplaceholder(username || "");
+        setPlaceplaceholder(address || "");
+        setPhoneplaceholder(phone || "");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   const address = process.env.REACT_APP_ADDRESS;
   const title = "내 정보 수정";
   const [base64String, setBase64String] = useState(null);
@@ -77,15 +113,24 @@ function MyPageEdit() {
     }
     if (inputImage !== "") {
       axios
-        .post(`${address}/api/auth/changeDB`, {
-          ...(inputName !== "" && { name: inputName }),
-          ...(inputId !== "" && { username: inputId }),
-          ...(inputPlace !== "" && { address: inputPlace }),
-          ...(inputImage !== "" && { profile: inputImage }),
-          ...(inputPhone !== "" && { phone: base64String }),
-        })
+        .post(
+          `${address}/api/auth/changeDB`,
+          {
+            ...(inputName !== "" && { name: inputName }),
+            ...(inputId !== "" && { username: inputId }),
+            ...(inputPlace !== "" && { address: inputPlace }),
+            ...(inputImage !== "" && { profile: base64String }),
+            ...(inputPhone !== "" && { phone: inputPhone }),
+          },
+          {
+            headers: {
+              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+            },
+          }
+        )
         .then(function (response) {
           console.log(response);
+          alert("정상적으로 수정되었습니다");
           navigate(-1);
         })
         .catch(function (error) {
@@ -103,12 +148,13 @@ function MyPageEdit() {
           },
           {
             headers: {
-              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg0NzcxMzMxLCJleHAiOjE2ODczNjMzMzF9.1FZ9bPxFbjlJthpIfIwGIMk3lr_GXc3aQ_kNTWjeKpQ`,
+              Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
             },
           }
         )
         .then(function (response) {
           console.log(response);
+          alert("정상적으로 수정되었습니다");
           navigate(-1);
         })
         .catch(function (error) {
@@ -181,29 +227,31 @@ function MyPageEdit() {
     setIdColor(!idcolor);
   };
 
-  const [nameplaceholder, setNameplaceholder] = useState("홍길동");
+  const [nameplaceholder, setNameplaceholder] = useState(userData.name);
   const handleNameClick = () => {
     setNameplaceholder("변경할 이름을 입력해주세요");
     setPhoneColor("black");
     setPlaceColor("black");
     setIdColor("black");
-    setPhoneplaceholder("010-1234-5678");
-    setPlaceplaceholder("성북구");
-    setIdplaceholder("gildong12");
+    setPhoneplaceholder(userData.phone);
+    setPlaceplaceholder(userData.place);
+    setIdplaceholder(userData.id);
   };
+  console.log(userData.name);
+  console.log(nameplaceholder);
 
-  const [phoneplaceholder, setPhoneplaceholder] = useState("010-1234-5678");
+  const [phoneplaceholder, setPhoneplaceholder] = useState(userData.phone);
   const handlePhoneClick = () => {
     setPhoneplaceholder("변경할 전화번호를 입력해주세요 (010-0000-0000)");
     setNameColor("black");
     setPlaceColor("black");
     setIdColor("black");
-    setNameplaceholder("홍길동");
-    setPlaceplaceholder("성북구");
-    setIdplaceholder("gildong12");
+    setNameplaceholder(userData.name);
+    setPlaceplaceholder(userData.place);
+    setIdplaceholder(userData.id);
   };
 
-  const [placeplaceholder, setPlaceplaceholder] = useState("성북구");
+  const [placeplaceholder, setPlaceplaceholder] = useState(userData.place);
   const handlePlaceClick = () => {
     setPlaceplaceholder(
       "변경할 주소를 입력해주세요 (서울특별시의 구만 입력해주세요 ex)oo구)"
@@ -211,20 +259,20 @@ function MyPageEdit() {
     setNameColor("black");
     setPhoneColor("black");
     setIdColor("black");
-    setNameplaceholder("홍길동");
-    setPhoneplaceholder("010-1234-5678");
-    setIdplaceholder("gildong12");
+    setNameplaceholder(userData.name);
+    setPhoneplaceholder(userData.phone);
+    setIdplaceholder(userData.id);
   };
 
-  const [idplaceholder, setIdplaceholder] = useState("gildong12");
+  const [idplaceholder, setIdplaceholder] = useState(userData.id);
   const handleIdClick = () => {
     setIdplaceholder("변경할 아이디를 입력해주세요 (영어와 숫자만 가능)");
     setNameColor("black");
     setPhoneColor("black");
     setPlaceColor("black");
-    setNameplaceholder("홍길동");
-    setPhoneplaceholder("010-1234-5678");
-    setPlaceplaceholder("성북구");
+    setNameplaceholder(userData.name);
+    setPhoneplaceholder(userData.phone);
+    setPlaceplaceholder(userData.place);
   };
 
   return (
@@ -236,6 +284,8 @@ function MyPageEdit() {
             src={
               base64String
                 ? base64String
+                : userData.profile
+                ? userData.profile
                 : process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"
             }
           ></img>
