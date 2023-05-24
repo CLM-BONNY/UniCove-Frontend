@@ -5,6 +5,7 @@ function FullButton(props) {
   return (
     <style.FullButton
       onClick={props.onClick}
+      padding={props.padding}
       margin={props.margin}
       width={props.width}
       height={props.height}
@@ -16,6 +17,7 @@ function FullButton(props) {
       position={props.position}
       top={props.top}
       left={props.left}
+      transform={props.transform}
     >
       {props.src && <img src={props.src} />}
       {props.btnName && <span>{props.btnName}</span>}
