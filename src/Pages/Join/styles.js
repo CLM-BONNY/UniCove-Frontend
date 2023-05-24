@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Wrap = styled.div`
   padding: 0px 20px 0;
+  height: 100%;
 `;
 
 export const ProfileImg = styled.div`
@@ -9,6 +10,11 @@ export const ProfileImg = styled.div`
   top: 93px;
   left: 128px;
   margin: 20px auto 50px auto;
+  > img {
+    border-radius: 180px;
+    width: 220px;
+    height: 220px;
+  }
 `;
 
 export const PlaceInput = styled.div`
