@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import * as style from "./styles";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Input from "../../Components/Input/Input";
@@ -37,20 +38,22 @@ function Write() {
           handleSave();
         }}
       />
-      <Input
-        name={"writeTitle"}
-        placeholder={"제목"}
-        borderColor={"#e0e0e0"}
-        value={write.writeTitle}
-        onChange={handleChange}
-      />
-      <Input
-        name={"writeContent"}
-        marginBottom={"15px"}
-        contentPlaceholder={"내용을 입력해 주세요"}
-        value={write.writeContent}
-        onChange={handleChange}
-      />
+      <style.Wrap>
+        <Input
+          name={"writeTitle"}
+          placeholder={"제목"}
+          borderColor={"#e0e0e0"}
+          value={write.writeTitle}
+          onChange={handleChange}
+        />
+        <Input
+          name={"writeContent"}
+          marginBottom={"15px"}
+          contentPlaceholder={"내용을 입력해 주세요"}
+          value={write.writeContent}
+          onChange={handleChange}
+        />
+      </style.Wrap>
       <Footer title={title} />
     </>
   );
