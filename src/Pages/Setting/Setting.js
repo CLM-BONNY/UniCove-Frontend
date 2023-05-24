@@ -1,13 +1,13 @@
 import React from "react";
-import * as style from "./styles";
-import TitleTab from "../../Components/TitleTab/TitleTab";
-import ContentTab from "../../Components/ContentTab/ContentTab";
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import * as style from "./styles";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import TitleTab from "../../Components/TitleTab/TitleTab";
+import ContentTab from "../../Components/ContentTab/ContentTab";
 
-function Setting(props) {
+function Setting() {
   const title = "설정";
   const [bell, setBell] = useState(true);
   const handelBell = () => {
@@ -19,7 +19,6 @@ function Setting(props) {
   return (
     <>
       <Header title={title} />
-
       <style.Wrap>
         <TitleTab marginBottom={"5px"} TabTitle={"개인정보"} />
         <ContentTab
@@ -28,7 +27,7 @@ function Setting(props) {
           content={"비밀번호 변경하기"}
           src={process.env.PUBLIC_URL + "Images/Setting/Right.svg"}
           onClick={() => {
-            navigate("/passwordchange");
+            navigate("/passwordChange");
           }}
         />
         <TitleTab marginBottom={"5px"} TabTitle={"앱"} />
@@ -45,7 +44,7 @@ function Setting(props) {
         />
         <TitleTab marginBottom={"5px"} TabTitle={"정보"} />
         <ContentTab
-          marginBottom={"10px"}
+          marginBottom={"5px"}
           Imogisrc={process.env.PUBLIC_URL + "Images/Setting/Paper.svg"}
           content={"개인정보 취급방침"}
           src={process.env.PUBLIC_URL + "Images/Setting/Right.svg"}
@@ -73,7 +72,7 @@ function Setting(props) {
           Imogisrc={process.env.PUBLIC_URL + "Images/Setting/Logout.svg"}
           content={"로그아웃"}
           onClick={() => {
-            navigate("/login");
+            navigate("/");
           }}
         />
       </style.Wrap>
