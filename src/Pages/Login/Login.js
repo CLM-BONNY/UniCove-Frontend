@@ -60,17 +60,13 @@ function Login() {
       </style.LogoBlock>
       <form>
         <Input
-          titlemarginBottom={"10px"}
           title={"아이디"}
-          marginBottom={"30px"}
           name={"LoginIdInput"}
           placeholder={"아이디를 입력해 주세요"}
           onChange={handleChange}
         />
         <Input
-          titlemarginBottom={"10px"}
           title={"비밀번호"}
-          marginBottom={"30px"}
           name={"LoginPasswordInput"}
           type={"password"}
           placeholder={"비밀번호를 입력해 주세요"}
