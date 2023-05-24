@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  padding: 20px;
+`;
+
 export const TitleBlock = styled.div`
-  width: 413px;
-  margin: 30px auto 0;
+  padding: 0px 20px;
 `;
 
 export const StarBlock = styled.div`
-  width: 413px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,3 +20,5 @@ export const StarBlock = styled.div`
     font-weight: 700;
   }
 `;
+
+export const Content = styled.div``;
