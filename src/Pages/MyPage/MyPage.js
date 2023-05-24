@@ -7,10 +7,11 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function MyPage() {
+  const title = "내 정보";
   const navigate = useNavigate();
   const location = useLocation();
   const token = location.state?.token;
-  console.log(token);
+
   const address = process.env.REACT_APP_ADDRESS;
   const [userData, setUserData] = useState({
     name: "",
@@ -19,9 +20,11 @@ function MyPage() {
     profile: "",
     phone: "",
   });
+
   useEffect(() => {
     fetchData();
   }, []);
+
   const fetchData = () => {
     axios
       .get(`${address}/api/auth/getUser`, {
@@ -45,13 +48,13 @@ function MyPage() {
         console.log(error);
       });
   };
-  const title = "내 정보";
+
   return (
     <>
       <Header
         title={title}
         onClick={() => {
-          navigate("/mypageedit", {
+          navigate("/mypageEdit", {
             state: {
               token: token,
             },
@@ -69,33 +72,25 @@ function MyPage() {
           ></img>
         </style.ProfileImg>
         <ReadonlyInput
-          titlemarginBottom={"10px"}
           title={"이름"}
-          marginBottom={"20px"}
           name={"MypageName"}
           placeholder={userData.name}
           color={"black"}
         />
         <ReadonlyInput
-          titlemarginBottom={"10px"}
           title={"전화번호"}
-          marginBottom={"20px"}
           name={"MypagePhone"}
           placeholder={userData.phone}
           color={"black"}
         />
         <ReadonlyInput
-          titlemarginBottom={"10px"}
           title={"주소"}
-          marginBottom={"20px"}
           name={"MypagePlace"}
           placeholder={userData.place}
           color={"black"}
         />
         <ReadonlyInput
-          titlemarginBottom={"10px"}
           title={"아이디"}
-          marginBottom={"20px"}
           name={"MypageId"}
           placeholder={userData.id}
           color={"black"}

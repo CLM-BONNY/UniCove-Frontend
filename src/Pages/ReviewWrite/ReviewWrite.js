@@ -11,17 +11,22 @@ function ReviewWrite() {
   return (
     <>
       <Header title={title} />
-      <style.TitleBlock>
-        <h3>장소 이름</h3>
-      </style.TitleBlock>
-      <style.StarBlock>
-        <ReviewStar margin={"0 auto 20px"} />
-        <span>0 / 5</span>
-      </style.StarBlock>
-      <Input
-        name={"writeContent"}
-        contentPlaceholder={"내용을 입력해 주세요"}
-      />
+      <style.Wrap>
+        <style.TitleBlock>
+          <h3>장소 이름</h3>
+        </style.TitleBlock>
+        <style.StarBlock>
+          <ReviewStar margin={"0 auto 20px"} />
+          <span>0 / 5</span>
+        </style.StarBlock>
+        <style.Content>
+          <Input
+            name={"writeContent"}
+            contentPlaceholder={"내용을 입력해 주세요"}
+          />
+        </style.Content>
+      </style.Wrap>
+
       <Footer title={title} />
     </>
   );
