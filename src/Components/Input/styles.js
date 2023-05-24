@@ -15,7 +15,6 @@ export const Wrap = styled.div`
     border: none;
     border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
     padding: 12px 15px;
-    color: ${(props) => props.color};
     font-size: 16px;
     font-weight: 400;
     &:hover,
@@ -24,6 +23,9 @@ export const Wrap = styled.div`
       outline: none;
       border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
     }
+    &::placeholder {
+    color: ${(props) => props.color};
+  }
   }
   > textarea {
     height: 70vh;

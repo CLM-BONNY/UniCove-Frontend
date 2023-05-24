@@ -8,10 +8,10 @@ export default function Input(props) {
       {props.contentPlaceholder ? (
         <textarea
           name={props.name}
-          onClick={props.onClick}
           type={props.type || "text"}
           placeholder={props.contentPlaceholder}
           onChange={props.onChange}
+          onClick={props.onClick}
           value={props.value}
         />
       ) : (

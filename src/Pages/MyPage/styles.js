@@ -1,17 +1,16 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 0px 20px 0;
-  height: 90vh;
+  padding: 0px 20px;
+  height: 100%;
 `;
 
 export const ProfileImg = styled.div`
-  width: 220px;
-  top: 93px;
-  left: 128px;
-  margin: 20px auto 80px auto;
+  margin: 70px;
+  display: flex;
+  justify-content: center;
   > img {
-    border-radius: 180px;
+    border-radius: 20px;
     width: 220px;
     height: 220px;
   }
