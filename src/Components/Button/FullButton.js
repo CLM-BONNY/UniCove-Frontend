@@ -18,6 +18,8 @@ function FullButton(props) {
       top={props.top}
       left={props.left}
       transform={props.transform}
+      borderTop={props.borderTop}
+      borderBottom={props.borderBottom}
     >
       {props.src && <img src={props.src} />}
       {props.btnName && <span>{props.btnName}</span>}

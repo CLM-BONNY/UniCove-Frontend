@@ -21,6 +21,14 @@ export const FullButton = styled.div`
   border-radius: ${(props) => props.border || "10px"};
   background-color: ${(props) => props.backgroundColor || "#84ccd4"};
   border: 2px solid ${(props) => props.backgroundColor || "#84ccd4"};
+  ${(props) =>
+    props.backgroundColor === "#AFD3E2" &&
+    `    
+    border-top-left-radius: ${props.borderTop};
+    border-top-right-radius: ${props.borderTop};
+    border-bottom-left-radius: ${props.borderBottom};
+    border-bottom-right-radius: ${props.borderBottom};
+  `}
   color: ${(props) => props.color || "#ffffff"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
@@ -53,6 +61,14 @@ export const StrokeButton = styled.div`
   border-radius: ${(props) => props.border || "10px"};
   background-color: #ffffff;
   border: 2px solid ${(props) => props.color || "#84ccd4"};
+  ${(props) =>
+    props.color === "#AFD3E2" &&
+    `
+    border-top-left-radius: ${props.borderTop};
+    border-top-right-radius: ${props.borderTop};
+    border-bottom-left-radius: ${props.borderBottom};
+    border-bottom-right-radius: ${props.borderBottom};
+  `}
   color: ${(props) => props.color || "#84ccd4"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
