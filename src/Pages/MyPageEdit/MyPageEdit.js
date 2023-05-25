@@ -170,29 +170,6 @@ function MyPageEdit() {
           console.log("no profile: " + error);
         });
     }
-    // axios
-    //   .post(
-    //     `${address}/api/auth/changeDB`,
-    //     {
-    //       ...(inputName !== "" && { name: inputName }),
-    //       ...(inputId !== "" && { username: inputId }),
-    //       ...(inputPlace !== "" && { address: inputPlace }),
-    //       ...(inputImage !== "" && { profile: inputImage }),
-    //       ...(inputPhone !== "" && { phone: inputPhone }),
-    //     },
-    //     {
-    //       headers: {
-    //         Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjg0NzcxMzMxLCJleHAiOjE2ODczNjMzMzF9.1FZ9bPxFbjlJthpIfIwGIMk3lr_GXc3aQ_kNTWjeKpQ`,
-    //       },
-    //     }
-    //   )
-    //   .then(function (response) {
-    //     console.log(response);
-    //     navigate(-1);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
   };
   const inputRef = useRef(null);
   const onUploadImage = useCallback((e) => {
@@ -238,7 +215,7 @@ function MyPageEdit() {
 
   const [nameplaceholder, setNameplaceholder] = useState(userData.name);
   const handleNameClick = () => {
-    setNameplaceholder("변경할 이름을 입력해주세요");
+    setNameplaceholder("변경할 이름을 입력해 주세요");
     setPhoneColor("black");
     setPlaceColor("black");
     setIdColor("black");
@@ -251,7 +228,7 @@ function MyPageEdit() {
 
   const [phoneplaceholder, setPhoneplaceholder] = useState(userData.phone);
   const handlePhoneClick = () => {
-    setPhoneplaceholder("변경할 전화번호를 입력해주세요 (010-0000-0000)");
+    setPhoneplaceholder("변경할 전화번호를 입력해 주세요 (010-0000-0000)");
     setNameColor("black");
     setPlaceColor("black");
     setIdColor("black");
@@ -263,7 +240,7 @@ function MyPageEdit() {
   const [placeplaceholder, setPlaceplaceholder] = useState(userData.place);
   const handlePlaceClick = () => {
     setPlaceplaceholder(
-      "변경할 주소를 입력해주세요 (서울특별시의 구만 입력해주세요 ex)oo구)"
+      "변경할 주소를 입력해주세요 (서울특별시의 구만 입력해 주세요 ex)oo구)"
     );
     setNameColor("black");
     setPhoneColor("black");
@@ -275,7 +252,7 @@ function MyPageEdit() {
 
   const [idplaceholder, setIdplaceholder] = useState(userData.id);
   const handleIdClick = () => {
-    setIdplaceholder("변경할 아이디를 입력해주세요 (영어와 숫자만 가능)");
+    setIdplaceholder("변경할 아이디를 입력해 주세요 (영어와 숫자만 가능)");
     setNameColor("black");
     setPhoneColor("black");
     setPlaceColor("black");
@@ -297,19 +274,19 @@ function MyPageEdit() {
                 ? userData.profile
                 : process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"
             }
-          ></img>
+          />
         </style.ProfileImg>
         <FullButton
           backgroundColor={"#0F4C75"}
           position={"absolute"}
-          width={"51px"}
-          height={"22.35px"}
-          top={"243px"}
-          left={"252px"}
-          border={"30px"}
+          width={"6%"}
+          height={"1.5%"}
+          top={"30%"}
+          left={"60%"}
+          border={"20px"}
           src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
           onClick={onUploadImageButtonClick}
-        ></FullButton>
+        />
         <input
           type="file"
           accept="image/*"
@@ -319,9 +296,7 @@ function MyPageEdit() {
           onChange={onUploadImage}
         />
         <Input
-          titlemarginBottom={"10px"}
           title={"이름"}
-          marginBottom={"20px"}
           name={"MypageEditName"}
           placeholder={nameplaceholder}
           color={namecolor ? "black" : "gray"}
@@ -332,9 +307,7 @@ function MyPageEdit() {
           }}
         />
         <Input
-          titlemarginBottom={"10px"}
           title={"전화번호"}
-          marginBottom={"20px"}
           name={"MypageEditPhone"}
           placeholder={phoneplaceholder}
           color={phonecolor ? "black" : "gray"}
@@ -345,9 +318,7 @@ function MyPageEdit() {
           }}
         />
         <Input
-          titlemarginBottom={"10px"}
           title={"주소"}
-          marginBottom={"20px"}
           name={"MypageEditPlace"}
           placeholder={placeplaceholder}
           color={placecolor ? "black" : "gray"}
@@ -358,9 +329,7 @@ function MyPageEdit() {
           }}
         />
         <Input
-          titlemarginBottom={"10px"}
           title={"아이디"}
-          marginBottom={"30px"}
           name={"MypageEditId"}
           placeholder={idplaceholder}
           color={idcolor ? "black" : "gray"}

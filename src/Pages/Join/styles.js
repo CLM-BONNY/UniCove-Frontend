@@ -1,40 +1,37 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 0px 20px 0;
+  padding: 0px 20px;
   height: 100%;
 `;
 
 export const ProfileImg = styled.div`
-  width: 220px;
-  top: 93px;
-  left: 128px;
-  margin: 20px auto 50px auto;
+  margin: 70px;
+  display: flex;
+  justify-content: center;
   > img {
-    border-radius: 180px;
+    border-radius: 20px;
     width: 220px;
     height: 220px;
   }
 `;
 
 export const PlaceInput = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  font-size: 16px;
   > select {
-    display: block;
-    width: 417px;
-    height: 19px;
-    border: 0;
+    width: 100%;
+    border: none;
     border-bottom: 2px solid #84ccd4;
     outline: none;
-    margin: 0 auto;
-    padding-left: 2px;
-    margin-bottom: 30px;
+    padding: 12px 15px;
+    font-size: 16px;
     appearance: none;
     -webkit-appearance: none;
     background: url("Images/Join/grayDown.svg") no-repeat 97% 50%/20px auto;
-  }
-  > select::-ms-expand {
-    display: none;
+    &::-ms-expand {
+      display: none;
+    }
   }
 
   #placehold {
@@ -47,15 +44,16 @@ export const PlaceInput = styled.div`
 `;
 
 export const Label = styled.div`
-  width: 413px;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: gray;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #808080;
+  margin-bottom: 5px;
 `;
 
 export const OuterButton = styled.div`
+  margin: 10% 0px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 `;
