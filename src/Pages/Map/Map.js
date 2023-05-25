@@ -7,7 +7,7 @@ const { kakao } = window;
 
 const Map = () => {
   const title = "지도";
-  
+
   useEffect(() => {
     const container = document.getElementById("myMap");
     const options = {
@@ -27,7 +27,11 @@ const Map = () => {
           height: "100vh",
         }}
       ></div>
-      <StrokeButton position={"absolute"} color={"#ffffff"} src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}/>
+      <StrokeButton
+        position={"absolute"}
+        color={"#ffffff"}
+        src={process.env.PUBLIC_URL + "/Images/Map/CurrentIcon.svg"}
+      />
       <Footer title={title} />
     </>
   );

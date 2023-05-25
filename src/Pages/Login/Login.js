@@ -20,25 +20,26 @@ function Login() {
     }));
   };
   const handleSubmit = async () => {
-    console.log(write);
     const inputId = write.LoginIdInput;
     const inputPassword = write.LoginPasswordInput;
+    if (inputId.length === 0 || inputPassword.length === 0) {
+      alert("전부 입력해 주세요");
+      return null;
+    }
     axios
       .post(`${address}/api/auth/login`, {
         username: inputId,
         password: inputPassword,
       })
       .then(function (response) {
-        console.log(response);
         if (response.status === 200) {
           const token = response.data.token;
           sessionStorage.setItem("token", token);
           alert("로그인에 성공했습니다");
-          navigate("/mypage");
+          navigate("/main");
         }
       })
       .catch(function (error) {
-        console.log(error);
         alert("올바르지 않은 아이디 또는 비밀번호입니다");
       });
   };
