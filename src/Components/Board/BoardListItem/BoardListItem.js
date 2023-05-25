@@ -3,7 +3,7 @@ import * as style from "./styles";
 
 function BoardListItem(props) {
   return (
-    <style.Wrap>
+    <style.Wrap onClick={props.onClick}>
       <style.Title>{props.title}</style.Title>
       <style.Content>{props.content}</style.Content>
       <style.BottomBlock>
