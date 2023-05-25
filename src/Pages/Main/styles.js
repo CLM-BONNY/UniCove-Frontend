@@ -35,7 +35,7 @@ export const Menu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 8%;
 `;
 
 export const ItemBlock = styled.div`

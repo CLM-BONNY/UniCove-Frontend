@@ -208,7 +208,7 @@ function Join() {
           title={"이름"}
           marginBottom={"30px"}
           name={"JoinNameInput"}
-          placeholder={"이름을 입력해주세요"}
+          placeholder={"이름을 입력해 주세요"}
           onChange={handleChange}
         />
         <Input
@@ -216,7 +216,7 @@ function Join() {
           title={"전화번호"}
           marginBottom={"30px"}
           name={"JoinPhoneInput"}
-          placeholder={"전화번호를 입력해주세요 (010-0000-0000)"}
+          placeholder={"전화번호를 입력해 주세요 (010-0000-0000)"}
           onChange={handleChange}
         />
         <style.Label>주소</style.Label>
@@ -227,7 +227,7 @@ function Join() {
             name={"JoinPlaceInput"}
           >
             <option value="text" selected>
-              주소 선택하기
+              주소를 선택해 주세요
             </option>
             <option value="강남구">강남구</option>
             <option value="강동구">강동구</option>
