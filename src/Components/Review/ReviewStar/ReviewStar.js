@@ -3,7 +3,7 @@ import * as style from "./styles";
 
 function ReviewStar(props) {
   return (
-    <style.Wrap margin={props.margin}>
+    <style.Wrap margin={props.margin} gap={props.gap} imgWidth={props.imgWidth}>
       <img
         src={process.env.PUBLIC_URL + "/Images/Review/StrokeStarIcon.svg"}
         onClick={props.onClick}

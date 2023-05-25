@@ -3,37 +3,27 @@ import * as style from "./styles";
 
 export default function Input(props) {
   return (
-    <style.Wrap>
-      <style.TitleBlock titlemarginBottom={props.titlemarginBottom}>
-        {props.title}
-      </style.TitleBlock>
-      <style.InputBlock
-        marginBottom={props.marginBottom}
-        color={props.color}
-        borderColor={props.borderColor}
-      >
-        {props.contentPlaceholder ? (
-          <textarea
-            name={props.name}
-            value={props.value}
-            type={props.type || "text"}
-            placeholder={props.contentPlaceholder}
-            style={{ outline: 0 }}
-            onChange={props.onChange}
-            onClick={props.onClick}
-          />
-        ) : (
-          <input
-            name={props.name}
-            value={props.value}
-            type={props.type || "text"}
-            placeholder={props.placeholder}
-            style={{ outline: 0 }}
-            onChange={props.onChange}
-            onClick={props.onClick}
-          />
-        )}
-      </style.InputBlock>
+    <style.Wrap borderColor={props.borderColor}>
+      <span>{props.title}</span>
+      {props.contentPlaceholder ? (
+        <textarea
+          name={props.name}
+          type={props.type || "text"}
+          placeholder={props.contentPlaceholder}
+          onChange={props.onChange}
+          onClick={props.onClick}
+          value={props.value}
+        />
+      ) : (
+        <input
+          name={props.name}
+          onClick={props.onClick}
+          type={props.type || "text"}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+          value={props.value}
+        />
+      )}
     </style.Wrap>
   );
 }

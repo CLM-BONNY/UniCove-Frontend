@@ -7,4 +7,5 @@ export const TitleTabBlock = styled.div`
   height: 47px;
   display: flex;
   align-items: center;
+  font-weight: 700;
 `;

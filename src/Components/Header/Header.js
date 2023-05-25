@@ -11,7 +11,7 @@ function Header(props) {
       <img
         src={process.env.PUBLIC_URL + "/Images/Header/BackIcon.svg"}
         onClick={() => {
-          props.title === "회원가입" ? navigate("../login") : navigate(-1);
+          props.title === "회원가입" ? navigate("../") : navigate(-1);
         }}
       />
       <span>{props.title}</span>
@@ -26,7 +26,6 @@ function Header(props) {
         </style.ButtonBlock>
       ) : props.title === "내 정보 수정" ||
         props.title === "오류 제보" ||
-        props.title === "설정" ||
         props.title === "비밀번호 변경" ||
         props.title === "글 쓰기" ||
         props.title === "리뷰 쓰기" ? (

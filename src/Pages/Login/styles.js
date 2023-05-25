@@ -1,18 +1,20 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 0px 20px 0;
+  padding: 30px 20px;
   height: 100%;
 `;
 
 export const LogoBlock = styled.div`
+  margin: 20%;
   display: flex;
   justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 70px;
 `;
 
 export const OuterButton = styled.div`
+  margin: 10% 0px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 `;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FullButton = styled.div`
-  padding: 10px;
+  padding: ${(props) => props.padding || "10px"};
   margin: ${(props) => props.margin || "20px"};
   ${(props) =>
     props.position &&
@@ -9,6 +9,7 @@ export const FullButton = styled.div`
   position: ${props.position};
   top: ${props.top};
   left: ${props.left};
+  transform: ${props.transform || "none"};
   `}
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};
@@ -20,12 +21,20 @@ export const FullButton = styled.div`
   border-radius: ${(props) => props.border || "10px"};
   background-color: ${(props) => props.backgroundColor || "#84ccd4"};
   border: 2px solid ${(props) => props.backgroundColor || "#84ccd4"};
+  ${(props) =>
+    props.backgroundColor === "#AFD3E2" &&
+    `    
+    border-top-left-radius: ${props.borderTop};
+    border-top-right-radius: ${props.borderTop};
+    border-bottom-left-radius: ${props.borderBottom};
+    border-bottom-right-radius: ${props.borderBottom};
+  `}
   color: ${(props) => props.color || "#ffffff"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   > span {
-    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
     &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
@@ -36,6 +45,13 @@ export const FullButton = styled.div`
 export const StrokeButton = styled.div`
   padding: 10px;
   margin: ${(props) => props.margin || "20px"};
+  ${(props) =>
+    props.position &&
+    `
+  position: ${props.position};
+  bottom: 10%;
+  right: 1%;
+  `}
   width: ${(props) => props.width || "20px"};
   height: ${(props) => props.height || "20px"};
   display: flex;
@@ -45,8 +61,17 @@ export const StrokeButton = styled.div`
   border-radius: ${(props) => props.border || "10px"};
   background-color: #ffffff;
   border: 2px solid ${(props) => props.color || "#84ccd4"};
+  ${(props) =>
+    props.color === "#AFD3E2" &&
+    `
+    border-top-left-radius: ${props.borderTop};
+    border-top-right-radius: ${props.borderTop};
+    border-bottom-left-radius: ${props.borderBottom};
+    border-bottom-right-radius: ${props.borderBottom};
+  `}
   color: ${(props) => props.color || "#84ccd4"};
   font-weight: 700;
   font-size: ${(props) => props.fontSize || "16px"};
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 `;
