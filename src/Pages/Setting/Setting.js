@@ -12,7 +12,6 @@ function Setting() {
   const [bell, setBell] = useState(true);
   const handelBell = () => {
     setBell(!bell);
-    console.log(bell);
   };
   const navigate = useNavigate();
 

@@ -5,11 +5,10 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import FullButton from "../../Components/Button/FullButton";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MyPageEdit() {
-  const location = useLocation();
-  const token = location.state?.token;
+  const token = sessionStorage.getItem("token");
   const [userData, setUserData] = useState({
     name: "",
     id: "",
@@ -28,7 +27,6 @@ function MyPageEdit() {
         },
       })
       .then(function (response) {
-        console.log(response);
         const { name, username, address, profile, phone } = response.data;
         setUserData({
           name: name || "",
@@ -42,9 +40,7 @@ function MyPageEdit() {
         setPlaceplaceholder(address || "");
         setPhoneplaceholder(phone || "");
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
   };
   const address = process.env.REACT_APP_ADDRESS;
   const title = "내 정보 수정";
@@ -131,13 +127,10 @@ function MyPageEdit() {
           }
         )
         .then(function (response) {
-          console.log(response);
           alert("정상적으로 수정되었습니다");
           navigate(-1);
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .catch(function (error) {});
     } else if (
       inputName === "" &&
       inputId === "" &&
@@ -162,13 +155,10 @@ function MyPageEdit() {
           }
         )
         .then(function (response) {
-          console.log(response);
           alert("정상적으로 수정되었습니다");
           navigate(-1);
         })
-        .catch(function (error) {
-          console.log("no profile: " + error);
-        });
+        .catch(function (error) {});
     }
   };
   const inputRef = useRef(null);
@@ -223,8 +213,6 @@ function MyPageEdit() {
     setPlaceplaceholder(userData.place);
     setIdplaceholder(userData.id);
   };
-  console.log(userData.name);
-  console.log(nameplaceholder);
 
   const [phoneplaceholder, setPhoneplaceholder] = useState(userData.phone);
   const handlePhoneClick = () => {

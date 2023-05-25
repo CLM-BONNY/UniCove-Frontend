@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 0px 20px 0;
+  padding: 20px;
   height: 90vh;
 `;

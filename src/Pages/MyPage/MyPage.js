@@ -4,14 +4,12 @@ import ReadonlyInput from "../../Components/Input/ReadonlyInput";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MyPage() {
   const title = "내 정보";
   const navigate = useNavigate();
-  const location = useLocation();
-  const token = location.state?.token;
-
+  const token = sessionStorage.getItem("token");
   const address = process.env.REACT_APP_ADDRESS;
   const [userData, setUserData] = useState({
     name: "",
@@ -33,7 +31,6 @@ function MyPage() {
         },
       })
       .then(function (response) {
-        console.log(response);
         const { name, username, address, profile, phone } = response.data;
         setUserData({
           name: name || "",
@@ -42,11 +39,8 @@ function MyPage() {
           profile: profile || "",
           phone: phone || "",
         });
-        console.log(profile);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
   };
 
   return (
@@ -54,11 +48,7 @@ function MyPage() {
       <Header
         title={title}
         onClick={() => {
-          navigate("/mypageEdit", {
-            state: {
-              token: token,
-            },
-          });
+          navigate("/mypageEdit");
         }}
       />
       <style.Wrap>

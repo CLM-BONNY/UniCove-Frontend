@@ -85,6 +85,7 @@ function Join() {
           if (response.status === 200) {
             const token = response.data.token;
             const extractedToken = token.replace(/^Bearer\s+/i, "");
+            sessionStorage.setItem("token", token);
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
             navigate("/mypage", {
@@ -113,9 +114,10 @@ function Join() {
           if (response.status === 200) {
             const token = response.data.token;
             const extractedToken = token.replace(/^Bearer\s+/i, "");
+            sessionStorage.setItem("token", token);
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
-            navigate("/mypage", {
+            navigate("/main", {
               state: {
                 token: token,
               },

@@ -32,15 +32,9 @@ function Login() {
         console.log(response);
         if (response.status === 200) {
           const token = response.data.token;
-          const extractedToken = token.replace(/^Bearer\s+/i, "");
-          console.log(token);
-          console.log(extractedToken);
+          sessionStorage.setItem("token", token);
           alert("로그인에 성공했습니다");
-          navigate("/mypage", {
-            state: {
-              token: token,
-            },
-          });
+          navigate("/mypage");
         }
       })
       .catch(function (error) {
