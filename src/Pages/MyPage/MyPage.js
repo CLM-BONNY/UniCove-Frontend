@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function MyPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const token = location.state?.token;
+  const token = sessionStorage.getItem("token");
   console.log(token);
   const address = process.env.REACT_APP_ADDRESS;
   const [userData, setUserData] = useState({

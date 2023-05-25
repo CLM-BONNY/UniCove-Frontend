@@ -9,7 +9,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function MyPageEdit() {
   const location = useLocation();
-  const token = location.state?.token;
+  const token = sessionStorage.getItem("token");
   const [userData, setUserData] = useState({
     name: "",
     id: "",

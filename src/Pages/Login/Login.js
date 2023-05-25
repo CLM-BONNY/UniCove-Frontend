@@ -35,6 +35,7 @@ function Login() {
           const extractedToken = token.replace(/^Bearer\s+/i, "");
           console.log(token);
           console.log(extractedToken);
+          sessionStorage.setItem("token", token);
           alert("로그인에 성공했습니다");
           navigate("/mypage", {
             state: {

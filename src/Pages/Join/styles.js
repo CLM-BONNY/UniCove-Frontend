@@ -26,6 +26,7 @@ export const PlaceInput = styled.div`
     border: 0;
     border-bottom: 2px solid #84ccd4;
     outline: none;
+    font-size: 16px;
     margin: 0 auto;
     padding-left: 2px;
     margin-bottom: 30px;

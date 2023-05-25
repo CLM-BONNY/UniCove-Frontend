@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 function PasswordChange() {
   const navigate = useNavigate();
   const address = process.env.REACT_APP_ADDRESS;
+  const token = sessionStorage.getItem("token");
+  console.log(token);
   const [userData, setUserData] = useState({
     password: "",
   });
@@ -19,7 +21,7 @@ function PasswordChange() {
     axios
       .get(`${address}/api/auth/getUser`, {
         headers: {
-          Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+          Authorization: `${token}`,
         },
       })
       .then(function (response) {
@@ -86,7 +88,7 @@ function PasswordChange() {
         },
         {
           headers: {
-            Authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImlhdCI6MTY4NDg1MTQzMiwiZXhwIjoxNjg3NDQzNDMyfQ.ycOVibyTMSCsaNd9XrxxE1C6kNEHv_Nzky06TUFydgo`,
+            Authorization: `${token}`,
           },
         }
       )
