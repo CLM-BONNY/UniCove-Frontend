@@ -25,6 +25,7 @@ export const PlaceInput = styled.div`
     border-bottom: 2px solid #84ccd4;
     outline: none;
     padding: 12px 15px;
+    font-size: 16px;
     appearance: none;
     -webkit-appearance: none;
     background: url("Images/Join/grayDown.svg") no-repeat 97% 50%/20px auto;
