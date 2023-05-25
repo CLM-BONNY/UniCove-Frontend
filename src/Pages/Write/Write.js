@@ -4,10 +4,13 @@ import * as style from "./styles";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Input from "../../Components/Input/Input";
+import axios from "axios";
 
 function Write() {
   const title = "글 쓰기";
   const navigate = useNavigate();
+  const address = process.env.REACT_APP_ADDRESS;
+  const token = sessionStorage.getItem("token");
 
   const [write, setWrite] = useState({
     writeTitle: "",
@@ -23,10 +26,27 @@ function Write() {
   };
 
   const handleSave = async () => {
-    console.log("Input value:", write);
     if (write.writeTitle && write.writeContent) {
-      alert("게시글 등록이 완료되었습니다!");
-      navigate("../board");
+      axios
+        .post(
+          `${address}/api/board/write`,
+          {
+            title: write.writeTitle,
+            content: write.writeContent,
+          },
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        )
+        .then(function (response) {
+          if (response.status === 200) {
+            alert("게시글 등록이 완료되었습니다");
+            navigate("../board");
+          }
+        })
+        .catch(function (error) {});
     } else alert("제목과 내용을 모두 입력해 주세요!");
   };
 
