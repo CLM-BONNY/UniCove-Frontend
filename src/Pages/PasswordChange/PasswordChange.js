@@ -10,7 +10,6 @@ function PasswordChange() {
   const navigate = useNavigate();
   const address = process.env.REACT_APP_ADDRESS;
   const token = sessionStorage.getItem("token");
-  console.log(token);
   const [userData, setUserData] = useState({
     password: "",
   });
@@ -25,16 +24,12 @@ function PasswordChange() {
         },
       })
       .then(function (response) {
-        console.log(response);
         const { password } = response.data;
         setUserData({
           password: password || "",
         });
-        console.log(password);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
   };
   const title = "비밀번호 변경";
   const [write, setWrite] = useState({
@@ -50,7 +45,6 @@ function PasswordChange() {
     }));
   };
   const handleSubmit = async () => {
-    console.log(write);
     const inputPassword = write.PasswordChangePresentPasswordInput;
     const inputNewPassword = write.PasswordChangeNewInput;
     const inputCheckPassword = write.PasswordChangeCheckInput;
@@ -90,12 +84,10 @@ function PasswordChange() {
         }
       )
       .then(function (response) {
-        console.log(response);
         alert("정상적으로 수정되었습니다");
         navigate(-1);
       })
       .catch(function (error) {
-        console.log(error);
         alert("현재 비밀번호가 일치하지 않습니다");
       });
   };

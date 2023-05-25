@@ -117,7 +117,7 @@ function Join() {
             sessionStorage.setItem("token", token);
             console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
-            navigate("/mypage", {
+            navigate("/main", {
               state: {
                 token: token,
               },
