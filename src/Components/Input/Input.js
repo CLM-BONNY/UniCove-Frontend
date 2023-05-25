@@ -3,7 +3,10 @@ import * as style from "./styles";
 
 export default function Input(props) {
   return (
-    <style.Wrap borderColor={props.borderColor}>
+    <style.Wrap
+      borderColor={props.borderColor}
+      color={props.color || "#808080"}
+    >
       <span>{props.title}</span>
       {props.contentPlaceholder ? (
         <textarea

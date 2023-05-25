@@ -28,7 +28,6 @@ function Join() {
     }));
   };
   const handleSubmit = async (e) => {
-    console.log(write);
     const inputName = write.JoinNameInput;
     const inputPhone = write.JoinPhoneInput;
     const inputPlace = write.JoinPlaceInput;
@@ -44,8 +43,8 @@ function Join() {
       inputPhone.length === 0 ||
       inputPlace === "text" ||
       inputId.length === 0 ||
-      inputPassword === 0 ||
-      inputPasswordCheck === 0
+      inputPassword.length === 0 ||
+      inputPasswordCheck.length === 0
     ) {
       alert("전부 입력해 주세요");
       return null;
@@ -84,9 +83,7 @@ function Join() {
           console.log(response.data.token);
           if (response.status === 200) {
             const token = response.data.token;
-            const extractedToken = token.replace(/^Bearer\s+/i, "");
             sessionStorage.setItem("token", token);
-            console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
             navigate("/mypage", {
               state: {
@@ -97,7 +94,6 @@ function Join() {
           // 메인 페이지로 이동
         })
         .catch(function (error) {
-          console.log(error);
           alert("이미 존재하는 회원입니다");
         });
     } else {
@@ -110,23 +106,15 @@ function Join() {
           password: inputPassword,
         })
         .then(function (response) {
-          console.log(response.data.token);
           if (response.status === 200) {
             const token = response.data.token;
-            const extractedToken = token.replace(/^Bearer\s+/i, "");
             sessionStorage.setItem("token", token);
-            console.log(extractedToken);
             alert("회원가입에 성공하였습니다");
-            navigate("/main", {
-              state: {
-                token: token,
-              },
-            });
+            navigate("/main");
           }
           // 메인 페이지로 이동
         })
         .catch(function (error) {
-          console.log(error);
           alert("이미 존재하는 회원입니다");
         });
     }
@@ -168,7 +156,6 @@ function Join() {
     }));
   };
 
-  console.log(base64String);
   const navigate = useNavigate();
   return (
     <>

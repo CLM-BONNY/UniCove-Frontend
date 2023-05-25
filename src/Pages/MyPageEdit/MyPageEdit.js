@@ -269,8 +269,8 @@ function MyPageEdit() {
           position={"absolute"}
           width={"6%"}
           height={"1.5%"}
-          top={"30%"}
-          left={"60%"}
+          top={"37%"}
+          left={"55%"}
           border={"20px"}
           src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
           onClick={onUploadImageButtonClick}
@@ -287,7 +287,7 @@ function MyPageEdit() {
           title={"이름"}
           name={"MypageEditName"}
           placeholder={nameplaceholder}
-          color={namecolor ? "black" : "gray"}
+          color={namecolor ? "black" : "#808080"}
           onChange={handleChange}
           onClick={() => {
             handleNameColor();
@@ -298,7 +298,7 @@ function MyPageEdit() {
           title={"전화번호"}
           name={"MypageEditPhone"}
           placeholder={phoneplaceholder}
-          color={phonecolor ? "black" : "gray"}
+          color={phonecolor ? "black" : "#808080"}
           onChange={handleChange}
           onClick={() => {
             handlePhoneColor();
@@ -309,7 +309,7 @@ function MyPageEdit() {
           title={"주소"}
           name={"MypageEditPlace"}
           placeholder={placeplaceholder}
-          color={placecolor ? "black" : "gray"}
+          color={placecolor ? "black" : "#808080"}
           onChange={handleChange}
           onClick={() => {
             handlePlaceColor();
@@ -320,7 +320,7 @@ function MyPageEdit() {
           title={"아이디"}
           name={"MypageEditId"}
           placeholder={idplaceholder}
-          color={idcolor ? "black" : "gray"}
+          color={idcolor ? "black" : "#808080"}
           onChange={handleChange}
           onClick={() => {
             handleIdColor();
