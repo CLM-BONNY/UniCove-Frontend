@@ -6,4 +6,15 @@
   position: relative;
   word-break: keep-all;
   border: 2px solid #f1f1f5;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+input, textarea, input::placeholder, textarea::placeholder {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
