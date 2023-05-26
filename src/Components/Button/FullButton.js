@@ -8,6 +8,7 @@ function FullButton(props) {
       padding={props.padding}
       margin={props.margin}
       width={props.width}
+      maxWidth={props.maxWidth}
       height={props.height}
       border={props.border}
       backgroundColor={props.backgroundColor}
