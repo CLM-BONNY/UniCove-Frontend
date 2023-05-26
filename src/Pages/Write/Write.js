@@ -40,13 +40,15 @@ function Write() {
             },
           }
         )
-        .then(function (response) {
+        .then((response) => {
           if (response.status === 200) {
             alert("게시글 등록이 완료되었습니다");
             navigate("../board");
           }
         })
-        .catch(function (error) {});
+        .catch((error) => {
+          console.log(error);
+        });
     } else alert("제목과 내용을 모두 입력해 주세요!");
   };
 
