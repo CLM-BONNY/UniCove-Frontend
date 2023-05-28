@@ -1,5 +1,6 @@
 import React from "react";
 import * as style from "./styles";
+import Modal from "../../Modal/Modal";
 
 function CommentItem(props) {
   return (
@@ -9,10 +10,12 @@ function CommentItem(props) {
           <img src={props.src} />
           {props.userId}
         </style.Profile>
-        <img src={process.env.PUBLIC_URL + "/Images/Board/DotIcon.svg"} />
+        {props.isMe && (
+          <Modal componentName={"댓글"} commentid={props.commentid} />
+        )}
       </style.TopBlock>
       <style.Comment>{props.comment}</style.Comment>
-      <style.Date>{props.date || "2023.05.23"}</style.Date>
+      <style.Date>{props.date}</style.Date>
     </style.Wrap>
   );
 }

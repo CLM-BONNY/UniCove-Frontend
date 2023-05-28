@@ -7,13 +7,13 @@ export const Wrap = styled.div`
 
 export const Title = styled.div`
   margin-bottom: 5px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 `;
 
 export const Content = styled.div`
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 18px;
 `;
 
 export const IconBlock = styled.div`

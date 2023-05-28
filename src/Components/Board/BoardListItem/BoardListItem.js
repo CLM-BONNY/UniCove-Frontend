@@ -12,7 +12,10 @@ function BoardListItem(props) {
           {props.commentCount}
         </style.IconBlock>
         <style.IconBlock>
-          <img src={process.env.PUBLIC_URL + "/Images/Board/LikeIcon.svg"} />
+          <img
+            src={process.env.PUBLIC_URL + "/Images/Board/LikeIcon.svg"}
+            onClick={() => props.onClick}
+          />
           {props.likeCount}
         </style.IconBlock>
       </style.BottomBlock>
