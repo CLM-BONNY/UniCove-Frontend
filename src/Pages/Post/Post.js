@@ -26,27 +26,31 @@ function Post() {
   const [articleData, setArticleData] = useState(null);
   const [userData, setUserData] = useState(null);
 
-  // 게시글 데이터
-  useEffect(() => {
-    const fetchArticleData = async () => {
-      try {
-        const response = await axios.post(
-          `${address}/api/article/read`,
-          { boardid },
-          { headers: { Authorization: `${token}` } }
-        );
-        setArticleData(response.data);
-        setQueryid(response.data.content.userid);
-        setLikeCount(response.data.content.cnt_like);
-        setPostIsMe(response.data.content.is_me);
-        setIsLike(response.data.content.is_like);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const [commentLen, setCommentLen] = useState(null);
 
+  // 게시글 데이터
+  const fetchArticleData = async () => {
+    try {
+      const response = await axios.post(
+        `${address}/api/article/read`,
+        { boardid },
+        { headers: { Authorization: `${token}` } }
+      );
+      setArticleData(response.data);
+      setQueryid(response.data.content.userid);
+      setLikeCount(response.data.content.cnt_like);
+      setPostIsMe(response.data.content.is_me);
+      setIsLike(response.data.content.is_like);
+      setCommentLen(response.data.comment);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    // 댓글 작성 후 게시글 데이터 다시 불러오기
     fetchArticleData();
-  }, [boardid]);
+  }, [comment, commentLen, likeCount]);
 
   // 사용자 데이터
   useEffect(() => {
@@ -85,7 +89,9 @@ function Post() {
           { headers: { Authorization: `${token}` } }
         )
         .then((response) => {
+          // 댓글 작성 완료 후 입력창 비우기
           console.log(response);
+          setComment("");
         })
         .catch((error) => {
           console.log(error);
@@ -97,8 +103,6 @@ function Post() {
   const handleLike = () => {
     if (isLike) {
       // 이미 좋아요가 눌려 있는 경우
-      setLikeCount(likeCount - 1);
-      setIsLike(false);
       axios
         .post(
           `${address}/api/article/unlike`,
@@ -113,10 +117,9 @@ function Post() {
         .catch((error) => {
           console.log(error);
         });
+      setIsLike(false);
     } else {
       // 좋아요가 눌려 있지 않은 경우
-      setLikeCount(likeCount + 1);
-      setIsLike(true);
       axios
         .post(
           `${address}/api/article/like`,
@@ -131,6 +134,7 @@ function Post() {
         .catch((error) => {
           console.log(error);
         });
+      setIsLike(true);
     }
   };
 

@@ -11,8 +11,6 @@ export default function Modal(props) {
   const commentid = props.commentid;
   const boardid = props.boardid;
 
-  console.log(boardid);
-
   const [isOpen, setIsOpen] = useState(false);
 
   // 모달 토글 함수

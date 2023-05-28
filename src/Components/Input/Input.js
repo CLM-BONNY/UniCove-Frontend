@@ -28,7 +28,7 @@ export default function Input(props) {
           placeholder={props.placeholder}
           onChange={props.onChange}
           value={props.value}
-          onKeyDown={props.onKeyDown}
+          onKeyDown={(e) => props.onKeyDown(e)}
         />
       )}
     </style.Wrap>
