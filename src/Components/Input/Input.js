@@ -4,6 +4,9 @@ import * as style from "./styles";
 export default function Input(props) {
   return (
     <style.Wrap
+      backgroundColor={props.backgroundColor}
+      height={props.height}
+      fontWeight={props.fontWeight}
       borderColor={props.borderColor}
       color={props.color || "#808080"}
     >
@@ -25,6 +28,7 @@ export default function Input(props) {
           placeholder={props.placeholder}
           onChange={props.onChange}
           value={props.value}
+          onKeyDown={(e) => props.onKeyDown(e)}
         />
       )}
     </style.Wrap>

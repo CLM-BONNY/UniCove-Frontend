@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as style from "./styles";
 import FullButton from "../Button/FullButton";
+import Modal from "../Modal/Modal";
 
 function Header(props) {
   const navigate = useNavigate();
@@ -43,7 +44,9 @@ function Header(props) {
           src={process.env.PUBLIC_URL + "/Images/Header/ShareIcon.svg"}
           onClick={props.onClick}
         />
-      ) : props.title === "게시판" ? (
+      ) : props.title === "게시판" && props.post && props.isMe ? (
+        <Modal componentName={"게시글"} boardid={props.boardid} />
+      ) : props.title === "게시판" && !props.post ? (
         <img
           src={process.env.PUBLIC_URL + "/Images/Header/SearchIcon.svg"}
           onClick={props.onClick}

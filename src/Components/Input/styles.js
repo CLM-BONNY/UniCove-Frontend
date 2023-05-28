@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   margin-bottom: 20px;
   > span {
@@ -12,11 +13,14 @@ export const Wrap = styled.div`
     margin-bottom: 5px;
   }
   > input {
+    height: ${(props) => props.height};
     border: none;
     border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
     padding: 12px 15px;
+    background-color: ${(props) => props.backgroundColor};
     font-size: 16px;
-    font-weight: 400;
+    font-weight: ${(props) => props.fontWeight || 400};
+    color: ${(props) => props.color};
     &:hover,
     &:focus-visible {
       border: none;
@@ -24,8 +28,9 @@ export const Wrap = styled.div`
       border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
     }
     &::placeholder {
-    color: ${(props) => props.color};
-  }
+      color: ${(props) => props.color};
+      font-weight: ${(props) => props.fontWeight};
+    }
   }
   > textarea {
     height: 70vh;

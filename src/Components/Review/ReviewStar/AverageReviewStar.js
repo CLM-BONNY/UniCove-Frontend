@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import * as style from "./styles";
 
 function ReviewStar(props) {
-  const [clickedStarIndex, setClickedStarIndex] = useState(0);
-
-  const handleStarClick = (num) => {
-    setClickedStarIndex(num);
-    props.onClick?.();
-    console.log(num);
-  };
 
   const getStarIcon = (num) => {
-    if (clickedStarIndex >= num) {
+    if (num <= props.averageRating) {
       return process.env.PUBLIC_URL + "/Images/Review/FullStarIcon.svg";
     }
     return process.env.PUBLIC_URL + "/Images/Review/StrokeStarIcon.svg";
@@ -23,7 +16,7 @@ function ReviewStar(props) {
         <img
           key={num}
           src={getStarIcon(num)}
-          onClick={() => handleStarClick(num)}
+          alt="star"
         />
       ))}
     </style.Wrap>
@@ -31,4 +24,3 @@ function ReviewStar(props) {
 }
 
 export default ReviewStar;
-

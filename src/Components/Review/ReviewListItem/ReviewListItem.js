@@ -1,6 +1,6 @@
 import React from "react";
 import * as style from "./styles";
-import ReviewStar from "../ReviewStar/ReviewStar";
+import AverageReviewStar from "../ReviewStar/AverageReviewStar";
 
 function ReviewListItem(props) {
   return (
@@ -11,14 +11,14 @@ function ReviewListItem(props) {
         </style.Profile>
         <style.RightBlock>
           <style.StarBlock>
-            <ReviewStar gap={"2px"} imgWidth={"18px"} />
-            <span>{props.starCount || 0}</span>
+            <AverageReviewStar gap={"2px"} imgWidth={"18px"} averageRating={props.starCount}/>
+            <span>{props.starCount}</span>
           </style.StarBlock>
           <style.IdDate>
-            <style.Id>{props.id || "새싹1"}</style.Id>
-            <style.Date>{props.date || "2023.05.23"}</style.Date>
+            <style.Id>{props.id}</style.Id>
+            <style.Date>{props.date}</style.Date>
           </style.IdDate>
-          {props.reviewContent || "음식이 맛있고 사장님이 친절해요 ㅎㅎ"}
+          {props.reviewContent}
         </style.RightBlock>
       </style.TopBlock>
     </style.Wrap>
