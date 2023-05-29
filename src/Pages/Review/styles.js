@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  padding: 0px 0px 50px 0px;
+`;
+
 export const StarBlock = styled.div`
   padding: 30px;
   display: flex;

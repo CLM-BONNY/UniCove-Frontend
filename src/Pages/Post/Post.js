@@ -140,6 +140,7 @@ function Post() {
   return (
     <ModalProvider>
       <Header title={title} post isMe={postIsMe} boardid={boardid} />
+      <style.Wrap>
       <style.TopBlock>
         <style.Profile>
           <img src={userData?.profile && userData.profile} />
@@ -186,6 +187,7 @@ function Post() {
           onKeyDown={handleKeyDown}
         />
       </style.CommentButton>
+      </style.Wrap>
       <Footer title={title} />
     </ModalProvider>
   );

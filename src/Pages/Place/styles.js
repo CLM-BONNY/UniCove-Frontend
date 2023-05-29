@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Wrap = styled.div`
-  padding: 0px 0px 30px 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 export const TopBlock = styled.div`
@@ -52,6 +54,7 @@ export const ReviewPlus = styled.div`
 `;
 
 export const BottomBlock = styled.div`
+  flex-grow: 1;
   height: 100%;
   padding: 20px 15px;
   margin-top: 30px;
