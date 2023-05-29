@@ -61,6 +61,44 @@ const Map = () => {
     map.panTo(new kakao.maps.LatLng(lat, lng));
   };
 
+  const generateRandomString = (num) => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let result = "";
+    const charactersLength = characters.length;
+    for (let i = 0; i < num; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  };
+
+  const waitForElm = (selector) => {
+    return new Promise((res, rej) => {
+      let timeout;
+      if (document.querySelector(selector)) {
+        return res(document.querySelector(selector));
+      }
+
+      const observer = new MutationObserver(() => {
+        if (document.querySelector(selector)) {
+          res(document.querySelector(selector));
+          if (timeout) clearTimeout(timeout);
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+
+      timeout = setTimeout(() => {
+        observer.disconnect();
+        rej(new Error("Timeout"));
+      }, 5000);
+    });
+  };
+
   // 지도 그리기 함수
   const draw = async () => {
     let center = map.getCenter();
@@ -99,23 +137,10 @@ const Map = () => {
       let marker = new kakao.maps.Marker(config);
       marker.setMap(map);
 
-      // 커스텀 오버레이 클릭 함수
-      function handleLinkClick() {
-        navigate("../place", {
-          state: {
-            name: e.name,
-            address: e.address,
-            img: e.img,
-            menu: e.menu,
-            info: e.info,
-            phone: e.phone,
-          },
-        });
-      }
-
+      let overlayId = `${generateRandomString(10)}_${e.id}`;
       // 커스텀 오버레이 생성
       let iwContent =
-        '<div class="customoverlay">' +
+        `<div id="${overlayId}" class="customoverlay">` +
         '<a href="javascript:void(0);"/>' +
         '    <span class="title">' +
         e.name +
@@ -131,10 +156,27 @@ const Map = () => {
         clickable: true,
       });
 
-      
       // 마커를 클릭했을 때 커스텀 오버레이 표시
-      kakao.maps.event.addListener(marker, "click", function () {
+      kakao.maps.event.addListener(marker, "click", () => {
         overlay.setMap(map);
+        // 커스텀 오버레이 클릭함수
+        waitForElm(`#${overlayId}`).then((el) => {
+          el.onclick = () =>
+            navigate("../place", {
+              state: {
+                id: e.id,
+                placeName: e.name,
+                placeAddress: e.address,
+                img: e.img,
+                menu: e.menu,
+                info: e.info,
+                phone: e.phone,
+                mode: mode,
+                lat: e.lat,
+                lng: e.lng
+              },
+            });
+        });
       });
     });
   };

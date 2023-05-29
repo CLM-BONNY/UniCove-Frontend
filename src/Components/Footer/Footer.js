@@ -29,7 +29,11 @@ function Footer(props) {
             <img
               src={process.env.PUBLIC_URL + "/Images/Footer/MapIcon.svg"}
               onClick={() => {
-                navigate("../map");
+                navigate("../map", {
+                  state: {
+                    mode: "goodshop"
+                  }
+                });
               }}
             />
           ) : (

@@ -10,7 +10,6 @@ import axios from "axios";
 function Review() {
   const title = "국민대학교";
   const location = useLocation();
-  const navigate = useNavigate();
   const address = process.env.REACT_APP_ADDRESS;
   const token = sessionStorage.getItem("token");
   const mode = location.state.mode;
@@ -33,17 +32,23 @@ function Review() {
   }, []);
 
   return (
-    <>
+    <style.Wrap>
       <Header title={title} />
-      <style.StarBlock>
-        <AverageReviewStar
-          margin={"20px"}
-          imgWidth={"30px"}
-          title={"리뷰 목록"}
-          averageRating={data.score}
-        />
-        <span>{data.score || 0} / 5</span>
-      </style.StarBlock>
+      {data?.score ? (
+        <style.StarBlock>
+          <AverageReviewStar
+            margin={"20px"}
+            imgWidth={"30px"}
+            title={"리뷰 목록"}
+            averageRating={data.score || 0}
+          />
+          <span>{data.score || 0} / 5</span>
+        </style.StarBlock>
+      ) : (
+        <style.StarBlock>
+          <h3>아직 등록된 리뷰가 없습니다</h3>
+        </style.StarBlock>
+      )}
       {data?.reviews &&
         data.reviews.map((item) => (
           <ReviewListItem
@@ -56,7 +61,7 @@ function Review() {
           />
         ))}
       <Footer title={title} />
-    </>
+    </style.Wrap>
   );
 }
 
