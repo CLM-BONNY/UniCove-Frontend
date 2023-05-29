@@ -1,72 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as style from "./styles";
 import Footer from "../../Components/Footer/Footer";
 import StrokeButton from "../../Components/Button/StrokeButton";
 import FullButton from "../../Components/Button/FullButton";
 import LikePlaceItem from "../../Components/LikePlaceItem/LikePlaceItem";
+import axios from "axios";
 
 function Main() {
   const title = "메인";
   const navigate = useNavigate();
   const [clickedButton, setClickedButton] = useState("착한 가격 업소");
+  const token = sessionStorage.getItem("token");
+  const address = process.env.REACT_APP_ADDRESS;
+  const [goodshopData, setGoodshopData] = useState(null);
+  const [nightstudyData, setNightstudyData] = useState(null);
 
   const handlePlaceButton = (buttonName) => {
     setClickedButton(buttonName);
   };
 
-  const data = [
-    {
-      id: 0,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 1,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 2,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 3,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 4,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 5,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 6,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 7,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 8,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-    {
-      id: 9,
-      placeName: "국민대학교",
-      location: "서울특별시 성북구 정릉로 77",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseNightstudy = await axios.get(
+          `${address}/api/nightstudy/like`,
+          {
+            headers: { Authorization: `${token}` },
+          }
+        );
+        const responseGoodshop = await axios.get(
+          `${address}/api/goodshop/like`,
+          {
+            headers: { Authorization: `${token}` },
+          }
+        );
+        setGoodshopData(responseGoodshop.data);
+        setNightstudyData(responseNightstudy.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleMap = (mode, lat, lng) => {
+    navigate("../map", {
+      state: {
+        mode: mode,
+        lat: lat,
+        lng: lng,
+      },
+    });
+  };
 
   return (
     <style.Wrap>
@@ -89,7 +76,11 @@ function Main() {
           border={"20px"}
           fontSize={"20px"}
           onClick={() => {
-            navigate("../map", { state: { placeType: "goodShop" } });
+            navigate("../map", {
+              state: {
+                mode: "goodShop",
+              },
+            });
           }}
         />
         <StrokeButton
@@ -103,7 +94,7 @@ function Main() {
           onClick={() => {
             navigate("../map", {
               state: {
-                placeType: "nightStudy",
+                mode: "nightStudy",
               },
             });
           }}
@@ -212,13 +203,31 @@ function Main() {
             )}
           </style.PlaceButton>
           <style.LikePlace>
-            {data.map((item) => (
-              <LikePlaceItem
-                key={item.id}
-                placeName={item.placeName}
-                location={item.location}
-              />
-            ))}
+            {clickedButton === "착한 가격 업소"
+              ? goodshopData &&
+                goodshopData.map((item) => (
+                  <LikePlaceItem
+                    key={item.id}
+                    placeName={item.name}
+                    location={item.address}
+                    mode={"goodshop"}
+                    lat={item.lat}
+                    lng={item.lng}
+                    onClick={handleMap}
+                  />
+                ))
+              : nightstudyData &&
+                nightstudyData?.map((item) => (
+                  <LikePlaceItem
+                    key={item.id}
+                    placeName={item.name}
+                    location={item.address}
+                    mode={"nightstudy"}
+                    lat={item.lat}
+                    lng={item.lng}
+                    onClick={handleMap}
+                  />
+                ))}
           </style.LikePlace>
         </style.LikePlaceBlock>
       </style.BottomBlock>
