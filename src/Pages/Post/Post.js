@@ -76,7 +76,7 @@ function Post() {
     setComment(e.target.value);
   };
 
-  // 엔터키 쿨릭시 댓글 작성 함수 실행
+  // 엔터키 클릭시 댓글 작성 함수 실행
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       axios
