@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  padding: 0px 0px 30px 0px;
+`;
+
 export const TopBlock = styled.div`
   display: flex;
   align-items: flex-end;
@@ -15,11 +19,6 @@ export const PlaceImg = styled.div`
     height: 90%;
     border-radius: 20px;
   }
-`;
-
-export const Pride = styled.div`
-  margin: 30px 20px;
-  display: flex;
 `;
 
 export const ReviewTopBlock = styled.div`
@@ -53,10 +52,12 @@ export const ReviewPlus = styled.div`
 `;
 
 export const BottomBlock = styled.div`
+  height: 100%;
   padding: 20px 15px;
   margin-top: 30px;
   display: flex;
-  align-items: end;
+  align-items: center;
+  justify-content: center;
   background-color: #84ccd4;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
