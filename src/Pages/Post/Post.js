@@ -13,6 +13,7 @@ function Post() {
   const title = "게시판";
   const location = useLocation();
   const token = sessionStorage.getItem("token");
+  const queryid = sessionStorage.getItem("id");
   const address = process.env.REACT_APP_ADDRESS;
 
   const [comment, setComment] = useState([]);
@@ -21,7 +22,6 @@ function Post() {
   const [isLike, setIsLike] = useState(false);
 
   const boardid = location.state.boardid;
-  const [queryid, setQueryid] = useState(null);
 
   const [articleData, setArticleData] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -37,7 +37,6 @@ function Post() {
         { headers: { Authorization: `${token}` } }
       );
       setArticleData(response.data);
-      setQueryid(response.data.content.userid);
       setLikeCount(response.data.content.cnt_like);
       setPostIsMe(response.data.content.is_me);
       setIsLike(response.data.content.is_like);
@@ -76,7 +75,7 @@ function Post() {
     setComment(e.target.value);
   };
 
-  // 엔터키 쿨릭시 댓글 작성 함수 실행
+  // 엔터키 클릭시 댓글 작성 함수 실행
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       axios

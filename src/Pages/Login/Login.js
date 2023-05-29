@@ -34,7 +34,10 @@ function Login() {
       .then(function (response) {
         if (response.status === 200) {
           const token = response.data.token;
+          const id = response.data.id;
           sessionStorage.setItem("token", token);
+          sessionStorage.setItem("id", id);
+          console.log(id);
           alert("로그인에 성공했습니다");
           navigate("/main");
         }

@@ -15,6 +15,7 @@ function LikePlaceItem(props) {
         backgroundColor={"#e0e0e0"}
         color={"#000000"}
         fontSize={"13px"}
+        onClick={() => props.onClick(props.mode, props.lat, props.lng)}
       />
     </style.Wrap>
   );

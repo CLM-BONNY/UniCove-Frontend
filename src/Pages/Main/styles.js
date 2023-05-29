@@ -24,7 +24,7 @@ export const BtnBlock = styled.div`
 
 export const BottomBlock = styled.div`
   margin-top: 50px;
-  padding: 20px;
+  padding: 20px 20px 60px;
   background-color: #ffffff;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
