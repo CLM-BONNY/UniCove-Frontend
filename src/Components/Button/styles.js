@@ -18,7 +18,6 @@ export const FullButton = styled.div`
   flex-direction: column;
   align-items: ${(props) => (props.btnSubName ? "flex-start" : "center")};
   justify-content: center;
-  text-align: center;
   border-radius: ${(props) => props.border || "10px"};
   background-color: ${(props) => props.backgroundColor || "#84ccd4"};
   border: 2px solid ${(props) => props.backgroundColor || "#84ccd4"};
@@ -36,6 +35,7 @@ export const FullButton = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   z-index: 3;
   > span {
+    white-space: pre-line;
     &:nth-child(2) {
       font-weight: 400;
       font-size: 12px;
