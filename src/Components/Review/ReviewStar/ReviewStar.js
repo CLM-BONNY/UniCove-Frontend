@@ -7,7 +7,7 @@ function ReviewStar(props) {
   const handleStarClick = (num) => {
     setClickedStarIndex(num);
     props.onClick?.();
-    console.log(num);
+    props.setScore(num);
   };
 
   const getStarIcon = (num) => {
@@ -31,4 +31,3 @@ function ReviewStar(props) {
 }
 
 export default ReviewStar;
-
