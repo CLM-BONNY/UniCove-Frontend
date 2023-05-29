@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Map.css";
 import Header from "../../Components/Header/Header";
@@ -11,7 +11,10 @@ const { kakao } = window;
 const Map = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const mode = location.state.mode;
+  let mode = location.state.mode;
+  let lat = location.state.lat;
+  let lng = location.state.lng;
+
   const title = "지도";
   const dup = new Set();
   const token = sessionStorage.getItem("token");
@@ -50,7 +53,12 @@ const Map = () => {
   const setPos2MyPos = async () => {
     // 시간이 조금 걸림. 로딩 화면 띄우면 좋을듯
     let pos = await getMyPos();
-    map.setCenter(new kakao.maps.LatLng(pos.lat, pos.lng));
+    map.panTo(new kakao.maps.LatLng(pos.lat, pos.lng));
+  };
+
+  const setOnePos = async () => {
+    // 시간이 조금 걸림. 로딩 화면 띄우면 좋을듯
+    map.panTo(new kakao.maps.LatLng(lat, lng));
   };
 
   // 지도 그리기 함수
@@ -91,16 +99,24 @@ const Map = () => {
       let marker = new kakao.maps.Marker(config);
       marker.setMap(map);
 
+      // 커스텀 오버레이 클릭 함수
+      function handleLinkClick() {
+        navigate("../place", {
+          state: {
+            name: e.name,
+            address: e.address,
+            img: e.img,
+            menu: e.menu,
+            info: e.info,
+            phone: e.phone,
+          },
+        });
+      }
+
       // 커스텀 오버레이 생성
       let iwContent =
         '<div class="customoverlay">' +
-        '  <a href="/place?name=' +
-        encodeURIComponent(e.name) +
-        "&address=" +
-        encodeURIComponent(e.address) +
-        "&mode=" +
-        encodeURIComponent(mode) +
-        '">' +
+        '<a href="javascript:void(0);"/>' +
         '    <span class="title">' +
         e.name +
         "</span>" +
@@ -109,12 +125,16 @@ const Map = () => {
         "</span>" +
         "  </a>" +
         "</div>";
-
-      let infowindow = new kakao.maps.CustomOverlay({
-        map: map,
+      let overlay = new kakao.maps.CustomOverlay({
         position: config.position,
         content: iwContent,
-        removable: true,
+        clickable: true,
+      });
+
+      
+      // 마커를 클릭했을 때 커스텀 오버레이 표시
+      kakao.maps.event.addListener(marker, "click", function () {
+        overlay.setMap(map);
       });
     });
   };
@@ -136,7 +156,11 @@ const Map = () => {
         draw();
       }, 500);
     });
-    setPos2MyPos().then(() => draw());
+    if (lat && lng) {
+      setOnePos().then(() => draw());
+    } else {
+      setPos2MyPos().then(() => draw());
+    }
   }, []);
 
   return (
