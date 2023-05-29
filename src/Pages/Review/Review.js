@@ -1,95 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as style from "./styles";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import ReviewListItem from "../../Components/Review/ReviewListItem/ReviewListItem";
-import ReviewStar from "../../Components/Review/ReviewStar/ReviewStar";
+import AverageReviewStar from "../../Components/Review/ReviewStar/AverageReviewStar";
+import axios from "axios";
 
-function Review(props) {
+function Review() {
   const title = "국민대학교";
+  const location = useLocation();
+  const navigate = useNavigate();
+  const address = process.env.REACT_APP_ADDRESS;
+  const token = sessionStorage.getItem("token");
+  const mode = location.state.mode;
+  const id = location.state.id;
 
-  const data = [
-    {
-      id: 0,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 1,
-      userId: "홍길",
-      date: "2023.05.14",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 1,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 2,
-      userId: "홍길",
-      date: "2023.05.24",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 2,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 5,
-      userId: "홍길",
-      date: "2023.05.24",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 3,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 4,
-      userId: "홍길",
-      date: "2023.05.20",
-      rreviewContent: "굿굿",
-    },
-    {
-      id: 4,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 0,
-      userId: "홍길",
-      date: "2023.05.27",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 5,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 1,
-      userId: "홍길",
-      date: "2023.05.24",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 6,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 2,
-      userId: "홍길",
-      date: "2023.05.01",
-      reviewContent: "굿굿",
-    },
-    {
-      id: 7,
-      src: process.env.PUBLIC_URL + "/Images/Place/ex.svg",
-      starCount: 1,
-      userId: "홍길",
-      date: "2023.05.25",
-      reviewContent: "굿굿",
-    },
-  ];
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`${address}/api/${mode}/review?id=${id}`, {
+        headers: { Authorization: `${token}` },
+      })
+      .then((response) => {
+        setData(response.data);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
       <Header title={title} />
       <style.StarBlock>
-        <ReviewStar margin={"20px"} imgWidth={"30px"} />
-        <span>0 / 5</span>
+        <AverageReviewStar
+          margin={"20px"}
+          imgWidth={"30px"}
+          title={"리뷰 목록"}
+          averageRating={data.score}
+        />
+        <span>{data.score || 0} / 5</span>
       </style.StarBlock>
-      {data.map((item) => (
-        <ReviewListItem key={item.id}
-        src={item.src}
-        starCount={item.starCount}
-        id={item.userId}
-        date={item.date}
-        reviewContent={item.review}/>
-      ))}
+      {data?.reviews &&
+        data.reviews.map((item) => (
+          <ReviewListItem
+            key={item.id}
+            src={item.profile}
+            starCount={item.score}
+            id={item.name}
+            date={item.createdTime.substr(0, 10)}
+            reviewContent={item.content}
+          />
+        ))}
       <Footer title={title} />
     </>
   );
