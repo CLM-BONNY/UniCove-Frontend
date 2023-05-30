@@ -17,7 +17,7 @@ export const IconBlock = styled.div`
 
 export const ButtonBlock = styled.div`
   position: absolute;
-  bottom: 7%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, 0%);
   display: flex;

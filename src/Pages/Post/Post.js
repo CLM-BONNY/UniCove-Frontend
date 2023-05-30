@@ -179,7 +179,7 @@ function Post() {
           width={"80vw"}
           maxWidth={"400px"}
           position={"fixed"}
-          top={"86%"}
+          top={"75%"}
           left={"50%"}
           transform={"translateX(-55%)"}
           value={comment}

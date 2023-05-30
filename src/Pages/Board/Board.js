@@ -95,7 +95,7 @@ function Board() {
           fontSize={"16px"}
           border={"20px"}
           position={"fixed"}
-          top={"85%"}
+          top={"75%"}
           left={"50%"}
           transform={"translateX(-70%)"}
           onClick={() => {
