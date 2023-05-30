@@ -66,7 +66,7 @@ function ReviewWrite() {
           <h3>{location.state.placeName}</h3>
         </style.TitleBlock>
         <style.StarBlock>
-          <ReviewStar margin={"0 auto 20px"} setScore={setScore} />
+          <ReviewStar margin={"0 auto 20px"} setScore={setScore()} />
           <span>{score || 0} / 5</span>
         </style.StarBlock>
         <style.Content>
