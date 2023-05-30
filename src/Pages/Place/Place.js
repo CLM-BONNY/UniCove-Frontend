@@ -140,7 +140,7 @@ function Place() {
 
   return (
     <style.Wrap>
-      <Header title={title} onClick={() => doCopy(address/currentUrl)} />
+      <Header title={title} onClick={() => doCopy(address + currentUrl)} />
       <style.TopBlock>
         <FullButton
           btnName={placeName}

@@ -134,7 +134,7 @@ function Main() {
               height={"40%"}
               backgroundColor={"#0F4C75"}
               border={"180px"}
-              src={process.env.PUBLIC_URL + "/Images/Main/MYPageIcon.svg"}
+              src={process.env.PUBLIC_URL + "/Images/Main/MyPageIcon.svg"}
               onClick={() => {
                 navigate("../mypage");
               }}
