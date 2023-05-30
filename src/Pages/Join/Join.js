@@ -85,7 +85,7 @@ function Join() {
             const token = response.data.token;
             sessionStorage.setItem("token", token);
             alert("회원가입에 성공하였습니다");
-            navigate("/mypage", {
+            navigate("/", {
               state: {
                 token: token,
               },
