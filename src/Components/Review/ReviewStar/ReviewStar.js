@@ -6,7 +6,7 @@ function ReviewStar(props) {
 
   const handleStarClick = (num) => {
     setClickedStarIndex(num);
-    props.setScore(num);
+    props.setScore && props.setScore(num);
   };
 
   const getStarIcon = (num) => {
