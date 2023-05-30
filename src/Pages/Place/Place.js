@@ -142,7 +142,7 @@ function Place() {
 
   return (
     <style.Wrap>
-      <Header title={title} onClick={() => doCopy(currentUrl)} />
+      <Header title={title} onClick={() => doCopy(address/currentUrl)} />
       <style.TopBlock>
         <FullButton
           btnName={placeName}
@@ -155,6 +155,7 @@ function Place() {
           padding={"2px"}
           btnName={"지도 보기"}
           width={"12%"}
+          height={"10%"}
           backgroundColor={"#e0e0e0"}
           color={"#000000"}
           fontSize={"13px"}

@@ -11,8 +11,8 @@ export const ProfileImg = styled.div`
   justify-content: center;
   > img {
     border-radius: 20px;
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
   }
 `;
 

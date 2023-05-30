@@ -269,7 +269,7 @@ function MyPageEdit() {
           position={"absolute"}
           width={"6%"}
           height={"1.5%"}
-          top={"37%"}
+          top={"30%"}
           left={"55%"}
           border={"20px"}
           src={process.env.PUBLIC_URL + "Images/MyPageEdit/Camera.svg"}
