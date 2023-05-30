@@ -8,10 +8,11 @@ function LikePlaceItem(props) {
       <style.PlaceName>{props.placeName}</style.PlaceName>
       <style.Location>{props.location}</style.Location>
       <FullButton
-        margin={"10px"}
+        margin={"0px"}
         padding={"0px"}
         btnName={"지도 보기"}
-        width={"15%"}
+        width={"15vw"}
+        height={"5vh"}
         backgroundColor={"#e0e0e0"}
         color={"#000000"}
         fontSize={"13px"}
