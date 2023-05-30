@@ -40,20 +40,7 @@ export default function Modal(props) {
 
   // 댓글 삭제 함수
   const handleCommentDelete = () => {
-    axios
-      .post(
-        `${address}/api/article/comment_del`,
-        {
-          commentid,
-        },
-        { headers: { Authorization: `${token}` } }
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    props.deleteComment(commentid);
     toggleModal();
   };
 
@@ -73,7 +60,11 @@ export default function Modal(props) {
             width={"80vw"}
             maxWidth={"400px"}
             backgroundColor={"#B0B0B0"}
-            onClick={props.componentName === "게시글" ? handlePostDelete : handleCommentDelete}
+            onClick={
+              props.componentName === "게시글"
+                ? handlePostDelete
+                : handleCommentDelete
+            }
           />
           <FullButton
             btnName={"취소"}

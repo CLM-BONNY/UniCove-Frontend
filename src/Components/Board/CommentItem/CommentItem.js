@@ -11,7 +11,11 @@ function CommentItem(props) {
           {props.userId}
         </style.Profile>
         {props.isMe && (
-          <Modal componentName={"댓글"} commentid={props.commentid} />
+          <Modal
+            deleteComment={props.deleteComment}
+            componentName={"댓글"}
+            commentid={props.commentid}
+          />
         )}
       </style.TopBlock>
       <style.Comment>{props.comment}</style.Comment>
