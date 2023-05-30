@@ -78,7 +78,7 @@ function Main() {
           onClick={() => {
             navigate("../map", {
               state: {
-                mode: "goodShop",
+                mode: "goodshop",
               },
             });
           }}
@@ -94,7 +94,7 @@ function Main() {
           onClick={() => {
             navigate("../map", {
               state: {
-                mode: "nightStudy",
+                mode: "nightstudy",
               },
             });
           }}

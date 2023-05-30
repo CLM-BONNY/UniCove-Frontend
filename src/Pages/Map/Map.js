@@ -173,7 +173,8 @@ const Map = () => {
                 phone: e.phone,
                 mode: mode,
                 lat: e.lat,
-                lng: e.lng
+                lng: e.lng,
+                isLike: e.like,
               },
             });
         });
