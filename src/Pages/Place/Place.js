@@ -38,7 +38,7 @@ function Place() {
 
   console.log(isLike)
   useEffect(() => {
-    if (mode === "nightstudy") {
+    if (mode && mode === "nightstudy") {
       setTitle("야간 공부 장소");
     } else {
       setTitle("착한 가격 업소");
