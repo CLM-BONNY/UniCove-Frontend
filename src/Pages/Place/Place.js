@@ -180,7 +180,7 @@ function Place() {
           });
         }}
       >
-        {userName}님의 후기를 남겨주세요!
+        {userName && userName}님의 후기를 남겨주세요!
         <ReviewStar />
       </style.ReviewTopBlock>
       <style.ReviewBottomBlock>
@@ -199,6 +199,7 @@ function Place() {
               state: {
                 mode: mode,
                 id: id,
+                placeName: placeName,
               },
             });
           }}
