@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as style from "./styles";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -8,8 +8,8 @@ import AverageReviewStar from "../../Components/Review/ReviewStar/AverageReviewS
 import axios from "axios";
 
 function Review() {
-  const title = "국민대학교";
   const location = useLocation();
+  const title = location.state.placeName;
   const address = process.env.REACT_APP_ADDRESS;
   const token = sessionStorage.getItem("token");
   const mode = location.state.mode;
