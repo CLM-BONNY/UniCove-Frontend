@@ -17,8 +17,6 @@ function Place() {
   const token = sessionStorage.getItem("token");
   const address = process.env.REACT_APP_ADDRESS;
 
-  console.log(location.state);
-
   // 지도 페이지에서 넘겨받는 변수
   const {
     id,
@@ -35,11 +33,11 @@ function Place() {
 
   // 백엔드에서 받는 변수
   const [userName, setUserName] = useState(null);
-  const [isLike, setIsLike] = useState(false);
+  const [isLike, setIsLike] = useState(location.state.isLike);
   const [data, setData] = useState(null);
 
+  console.log(isLike)
   useEffect(() => {
-    fetchData();
     if (mode === "nightstudy") {
       setTitle("야간 공부 장소");
     } else {
