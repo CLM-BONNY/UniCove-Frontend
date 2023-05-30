@@ -260,7 +260,7 @@ function MyPageEdit() {
                 ? base64String
                 : userData.profile
                 ? userData.profile
-                : process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"
+                : process.env.PUBLIC_URL + "Images/MyPage/basicProfileImg.svg"
             }
           />
         </style.ProfileImg>

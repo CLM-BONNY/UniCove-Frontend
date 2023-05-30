@@ -57,7 +57,7 @@ function MyPage() {
             src={
               userData.profile
                 ? userData.profile
-                : process.env.PUBLIC_URL + "Images/Mypage/basicProfileImg.svg"
+                : process.env.PUBLIC_URL + "Images/MyPage/basicProfileImg.svg"
             }
           ></img>
         </style.ProfileImg>
