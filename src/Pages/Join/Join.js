@@ -178,8 +178,8 @@ function Join() {
             position={"absolute"}
             width={"51px"}
             height={"22.35px"}
-            top={"165px"}
-            left={"240px"}
+            top={"70%"}
+            left={"50%"}
             border={"30px"}
             onClick={onUploadImageButtonClick}
           />
