@@ -77,3 +77,9 @@ export const StrokeButton = styled.div`
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   z-index: 3;
 `;
+
+export const InputBlock = styled.div`
+  display: flex;
+  align-items: end;
+  justify-content: center;
+`;

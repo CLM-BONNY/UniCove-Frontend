@@ -9,6 +9,8 @@ export default function Input(props) {
       fontWeight={props.fontWeight}
       borderColor={props.borderColor}
       color={props.color || "#808080"}
+      padding={props.padding}
+      marginBottom={props.marginBottom}
     >
       <span>{props.title}</span>
       {props.contentPlaceholder ? (

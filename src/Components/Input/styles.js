@@ -5,7 +5,7 @@ export const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: ${(props) => props.marginBottom || "20px"};
   > span {
     font-weight: 600;
     font-size: 16px;
@@ -16,7 +16,7 @@ export const Wrap = styled.div`
     height: ${(props) => props.height};
     border: none;
     border-bottom: 2px solid ${(props) => props.borderColor || "#84ccd4"};
-    padding: 12px 15px;
+    padding: ${(props) => props.padding || "12px 15px"};
     background-color: ${(props) => props.backgroundColor};
     font-size: 16px;
     font-weight: ${(props) => props.fontWeight || 400};

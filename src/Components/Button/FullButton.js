@@ -28,9 +28,12 @@ function FullButton(props) {
       {props.btnSubName && <span>{props.btnSubName}</span>}
       {props.input && (
         <Input
+          marginBottom={"0px"}
           backgroundColor={"#84ccd4"}
+          padding={"0px"}
           color={"#ffffff"}
-          height={"10%"}
+          width={"80vw"}
+          height={"3vh"}
           placeholder={"댓글을 입력해 주세요"}
           fontWeight={"600"}
           value={props.value}
