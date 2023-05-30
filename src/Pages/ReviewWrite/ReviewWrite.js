@@ -17,7 +17,7 @@ function ReviewWrite() {
   const id = location.state.id;
   const mode = location.state.mode;
 
-  const [score, setScore] = useState(null);
+  const [score, setScore] = useState(0);
   const [content, setContent] = useState("");
 
   // 리뷰 내용 함수
@@ -66,7 +66,7 @@ function ReviewWrite() {
           <h3>{location.state.placeName}</h3>
         </style.TitleBlock>
         <style.StarBlock>
-          <ReviewStar margin={"0 auto 20px"} setScore={setScore()} />
+          <ReviewStar margin={"0 auto 20px"} setScore={setScore} />
           <span>{score || 0} / 5</span>
         </style.StarBlock>
         <style.Content>

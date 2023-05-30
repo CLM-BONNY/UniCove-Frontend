@@ -6,7 +6,6 @@ function ReviewStar(props) {
 
   const handleStarClick = (num) => {
     setClickedStarIndex(num);
-    props.onClick?.();
     props.setScore(num);
   };
 
