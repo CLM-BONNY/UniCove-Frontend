@@ -168,7 +168,7 @@ function Post() {
         <style.TopBlock>
           <style.Profile>
             <img src={userData?.profile && userData.profile} />
-            <span>{userData?.username && userData.username}</span>
+            <span>{userData?.name && userData.name}</span>
           </style.Profile>
           <style.Date>
             {articleData?.content.created_time &&

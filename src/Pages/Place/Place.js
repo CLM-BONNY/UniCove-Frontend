@@ -53,7 +53,8 @@ function Place() {
           `${address}/api/board/getUser?queryid=${queryid}`,
           { headers: { Authorization: `${token}` } }
         );
-        setUserName(response.data.username);
+        setUserName(response.data.name);
+        console.log(userName);
       } catch (error) {
         console.error(error);
       }
