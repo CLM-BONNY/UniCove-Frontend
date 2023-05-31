@@ -21,6 +21,7 @@ export const Profile = styled.div`
   > img {
     width: 25%;
     height: 25%;
+    border-radius: 10px;
   }
 `;
 
